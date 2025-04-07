@@ -1,0 +1,97 @@
+:root {
+    --verde: #3E5902;
+    --amarillo: #F2A20C;
+    --beige: #8C0303;
+    --marron: #592519;
+    --rojo: #8C0303;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  body {
+    background-color: var(--beige);
+    color: #333;
+    padding: 30px;
+    
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  form {
+    max-width: 500px;
+    margin: auto;
+    background-color: #592519;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease-in-out;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: var(--verde);
+    color: white;
+    border: none;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: var(--amarillo);
+    color: var(--marron);
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: var(--marron);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2rem; /* Aumenta el tamaño */
+    color: white;      /* Cambia el color a blanco */
+    background-color: #3E5902; /* Opcional: fondo más visible */
+    padding: 20px;
+  }

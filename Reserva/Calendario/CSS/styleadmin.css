@@ -1,0 +1,98 @@
+:root {
+  --verde: #3E5902;
+  --amarillo: #F2A20C;
+  --beige: #8C0303;
+  --marron: #592519;
+  --rojo: #8C0303;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: var(--beige);
+  padding: 30px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: slideUp 1s ease-in-out;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--verde);
+  color: white;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: var(--amarillo);
+  color: var(--marron);
+  transition: 0.3s;
+}
+
+button {
+  background-color: var(--rojo);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--marron);
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: var(--marron);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+  
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2rem; /* Aumenta el tamaño */
+    color: white;      /* Cambia el color a blanco */
+    background-color: #3E5902; /* Opcional: fondo más visible */
+    padding: 20px;
+  }
+  
+  
