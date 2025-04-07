@@ -10,6 +10,15 @@ Font license info
    Homepage:  http://typicons.com/
 
 
+## Maki
+
+   Copyright (C) Mapbox, LCC
+
+   Author:    Mapbox
+   License:   BSD (https://github.com/mapbox/maki/blob/gh-pages/LICENSE.txt)
+   Homepage:  http://mapbox.com/maki/
+
+
 ## Font Awesome
 
    Copyright (C) 2016 by Dave Gandy
@@ -17,14 +26,5 @@ Font license info
    Author:    Dave Gandy
    License:   SIL ()
    Homepage:  http://fortawesome.github.com/Font-Awesome/
-
-
-## Zocial
-
-   Copyright (C) 2012 by Sam Collins
-
-   Author:    Sam Collins
-   License:   MIT (http://opensource.org/licenses/mit-license.php)
-   Homepage:  http://zocial.smcllns.com/
 
 

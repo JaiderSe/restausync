@@ -10,6 +10,13 @@
 }
 body{
     font-family: 'Arial', sans-serif;
+
+}
+#blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px; /* Ajusta según sea necesario para evitar que se superponga con el header */
 }
 
 header{
@@ -60,4 +67,36 @@ footer .contenedor{
 .sociales a{
     text-decoration: none;
     color: #333;
+}
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: url(../img/banner.jpeg);
+    margin: 0 auto; /* Centra el slider horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides {
+    display: flex;
+    width: 300%; /* 100% por cada imagen */
+    animation: slide 9s infinite; /* 3 segundos por imagen */
+    
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
 }
