@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Restaurante</title>
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+    <div class="container">
+       
+        <aside class="sidebar">
+            <h2>Admin Panel</h2>
+            <nav>
+                <ul>
+                    <li><a href="#clientes">Ver Clientes</a></li>
+                    <li><a href="#gestion">Gestión Accesos</a></li>
+                    <li><a href="#mesas">Asignar Mesas</a></li>
+                    <li><a href="#restaurante">Info Restaurante</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+      
+        <main class="main-content">
+            
+            <section id="clientes">
+                <h1>Ver Clientes</h1>
+                <div class="client-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Última Visita</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Juan Pérez</td>
+                                <td>08/04/2025</td>
+                                <td><button>Ver</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            
+            <section id="gestion">
+                <h1>Gestionar Accesos</h1>
+                <div class="access-form">
+                    <select>
+                        <option value="admin">Administrador</option>
+                        <option value="mesero">Mesero</option>
+                        <option value="cocinero">Cocinero</option>
+
+                    </select>
+                    <input type="text" placeholder="Nombre de usuario">
+                    <button>Agregar</button>
+                </div>
+            </section>
+
+           
+            <section id="mesas">
+                <h1>Asignar Mesas</h1>
+                <div class="table-grid">
+                    <div class="table-card">
+                        <h3>Mesa 1</h3>
+                        <p>Estado: Libre</p>
+                        <button>Asignar</button>
+                    </div>
+                    <div class="table-card">
+                        <h3>Mesa 2</h3>
+                        <p>Estado: Ocupada</p>
+                        <button>Reasignar</button>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="restaurante">
+                <h1>Información del Restaurante</h1>
+                <div class="restaurant-info">
+                    <p><strong>Mesas Totales:</strong> 15</p>
+                    <p><strong>Mesas Ocupadas:</strong> 7</p>
+                    <p><strong>Personal Activo:</strong> 8</p>
+                    <p><strong>Ingresos Hoy:</strong> $1,250</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
