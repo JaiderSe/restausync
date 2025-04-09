@@ -40,7 +40,7 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 [link](https://docs.google.com/document/d/15r4De55eXJv-mmLM6LAxWpgDSMNhAgRu/edit?usp=drivesdk&ouid=108198849053322034172&rtpof=true&sd=true)
 
 **📊 Presentación:**
-[Link](https://www.canva.com/design/DAGWdlvLmhk/Ja-pEjfaoU5l3c0tHvcEGQ/edit?utm_content=DAGWdlvLmhk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Link](https://docs.google.com/presentation/d/1ARbApwiHhqjzRcdLujl3CnWwfr9a4EP9/edit?usp=drive_link&ouid=113993787889252200151&rtpof=true&sd=true)
 
 
 **🚀 Mockup:**
