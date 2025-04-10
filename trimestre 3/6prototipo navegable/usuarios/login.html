@@ -20,6 +20,7 @@
                 <input type="password" id="password" required>
             </div>
             <button type="submit" class="btn">Ingresar</button>
+            <p class="auth-link">¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
         </form>
     </div>
 
@@ -43,18 +44,14 @@
                 
                 // Redirigir según rol
                 if (user.role === 'admin') {
-                    window.location.href = './admin/dashboard.html';
-                }
-                else if (user.role === 'cocinero') {
-                    window.location.href = './cocinero/dashboard.html';
-                }
-                else if (user.role === 'repartidor') {
-                    window.location.href = './repartidor/dashboard.html';
+                    window.location.href = './admin/index.html';
                 }
                 else if (user.role === 'mesero') {
-                    window.location.href = './mesero/dashboard.html';
-                }
-                 else {
+                    window.location.href = 'admin/dashboard.html';
+                } else if (user.role === 'cocinero') {
+                    window.location.href = './cocinero/index.html';
+                } 
+                else {
                     window.location.href = './cliente/productos.html';
                 }
             } else {
