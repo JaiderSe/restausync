@@ -60,11 +60,28 @@ section{
 #bienvenida{
     text-align: center;
 }
-footer .contenedor{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 25px;
+.footer {
+    background-color: #460303;
+    color: var(--light-color);
+    padding: 3rem 5% 1rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--light-color);
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    color: #ccc;
 }
 .copy {
     font-size: 20px;
@@ -83,7 +100,7 @@ footer .contenedor{
 .slideshow {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
