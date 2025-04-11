@@ -18,6 +18,14 @@ body {
   margin-bottom: 10 px;
 }
 
+.role {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10 px;
+}
+
 .form-group label {
   display: block;
   margin-bottom: 0.1rem;
