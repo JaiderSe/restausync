@@ -1,12 +1,20 @@
+@import url(../../Inicio/css/menu.css);
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+.contenedor{
+
+    padding: auto;
+}
 body {
     font-family: Arial, sans-serif;
-    background-color: #8C0303; 
+    background-color: #F2F0EB;     
     color: #333;
 }
 
@@ -21,9 +29,11 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+    padding-top: 40px;
 }
 
 .new-order-form {
+    border-top: 10px;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
