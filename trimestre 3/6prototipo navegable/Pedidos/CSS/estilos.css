@@ -9,13 +9,12 @@
 
 
 .contenedor{
-
     padding: auto;
 }
 body {
-    font-family: Arial, sans-serif;
-    background-color: #F2F0EB;     
-    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #22090b;     
+    color: #000000;
 }
 
 .container {
@@ -44,12 +43,18 @@ body {
 
 .form-group {
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+.new-order-form h2 {
+    text-align: center;
+    color: #000000;
 }
 
 .form-group input,
@@ -62,7 +67,7 @@ body {
 }
 
 .submit-btn {
-    background-color:#8C0303; 
+    background-color:#a13416; 
     color: white;
     padding: 10px 20px;
     border: none;
@@ -72,7 +77,7 @@ body {
 }
 
 .submit-btn:hover {
-    background-color: #9f2626;
+    background-color: #6e2027;
 }
 
 
@@ -88,7 +93,7 @@ body {
 }
 
 .header h1 {
-    color: #D9B29C;
+    color: #F2F0EB;
 }
 .filters {
     display: flex;
@@ -100,11 +105,12 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #F2A20C;
+    color: #ffffff;
+    background-color: #a13416;
 }
 
 .filter-btn.active {
-    background-color: #8C0303; 
+    background-color: #6e2027; 
     color: white;
 }
 
@@ -113,33 +119,38 @@ body {
     border-collapse: collapse;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 th, td {
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border: 1px solid  #c4c4c4;
+    border-left: 0px;
 }
 
 th {
-    background-color: #F2A20C;
-    color: #333;
+    background-color: rgb(224, 224, 224);
+    color: #000000;
+}
+
+.order-id{
+    background-color: rgb(233, 233, 233);
 }
 
 .status-pending {
-    background-color: #ffebee;
-    color: #c62828;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .status-preparing {
-    background-color: #fff3e0;
-    color: #ef6c00;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .status-ready {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .btn {
@@ -148,33 +159,33 @@ th {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 5px;
-    transition: background-color 0.3s;
+    
 }
 
 .btn-prepare {
-    background-color: #3E5902;
+    background-color: #a13416;
     color: white;
 }
 
 .btn-prepare:hover {
-    background-color: #527012; 
+    background-color: #6e2027; 
 }
 
 .btn-ready {
-    background-color: #3E5902; 
+    background-color: #a13416; 
     color: white;
 }
 
 .btn-ready:hover {
-    background-color: #3E5902; 
+    background-color: #6e2027; 
 }
 .btn-details {
-    background-color: #8C0303; 
+    background-color: #a13416; 
     color: white;
 }
 
 .btn-details:hover {
-    background-color: #640606; 
+    background-color: #6e2027; 
 }
 
 .order-id {
@@ -184,8 +195,4 @@ th {
 .timestamp {
     font-size: 0.9em;
     color: #666;
-}
-
-.priority-high {
-    border-left: 4px solid #d32f2f;
 }

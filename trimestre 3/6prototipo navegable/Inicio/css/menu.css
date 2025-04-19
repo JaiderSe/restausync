@@ -4,9 +4,9 @@
 
 header{
     width: 100%;
-    height: 50px;
-    background: #460303;
-    color: #fff;
+    height: 54px;
+    background: #e4dfd6;
+    color: #e4dfd6;
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +26,7 @@ header h1{
 header h1 a{
     float: left;
     text-decoration: none;
-    color: #ffffff;
+    color: #22090b;
 }
 
 
@@ -39,7 +39,6 @@ header label{
     cursor: pointer;
 }
 .menu{
-   
     position: absolute;
     top: 50px;
     left: 0;
@@ -51,16 +50,21 @@ header label{
 }
 
 .menu a{
-    display: block;
-    height: 100%;
+    display: flex;
+    font-size: 15px;
+    height: 10%;
     text-decoration: none;
-    color: #fff;
-    padding: 15px;
+    color: #e4dfd6;
+    padding: 8px 12px 8px 12px;
+    border-radius: 3px;
+    margin: 10px 4px 10px 4px;
+    text-align: center;
+    background-color: #a13416;
 }
 
 .menu a:hover{
-    background: rgba(255, 255, 255, 0.3);
-    color: #fff;
+    background: #6e2027;
+    color: #e4dfd6;
 }
 
 #menu-bar:checked ~ .menu{

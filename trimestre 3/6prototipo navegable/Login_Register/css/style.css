@@ -42,10 +42,11 @@ body {
 
 .role {
   display: flex;
-  margin: 20px;
+  margin: 40px;
   justify-content: center;
   align-items: center;
   margin-bottom: 10 px;
+  
 }
 
 .form-group label {
@@ -57,7 +58,7 @@ body {
 .form-group select {
 
   width: 100%;
-  padding: 10 px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -148,7 +149,6 @@ body {
 
 .form label span:hover {
   color: #D9B29C;
-  text-decoration: underline;
   cursor: pointer;
 }
 
