@@ -39,6 +39,9 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 **📃 Documento:**
 [link](https://docs.google.com/document/d/15r4De55eXJv-mmLM6LAxWpgDSMNhAgRu/edit?usp=drivesdk&ouid=108198849053322034172&rtpof=true&sd=true)
 
+**📃 Diseño UX/UI:**
+[link](https://docs.google.com/document/d/1uYjzObtSr7cGoRIv3svmb5KaIqbRuRQ-yJIf0PurmhI/edit?usp=sharing)
+
 **📊 Presentación:**
 [Link](https://docs.google.com/presentation/d/1oB6k4QIMxJEdAeV6bUasqtCnlSp9KzXe/edit?usp=drive_link&ouid=104681654974810316499&rtpof=true&sd=true)
 
