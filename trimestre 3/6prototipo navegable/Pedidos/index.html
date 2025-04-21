@@ -16,10 +16,7 @@
                 <label class="align-justify" for="menu-bar"></label>
                 
             <nav class="menu">
-                <a href="../Pedidos/index.html">Pedidos</a>
-                <a href="../usuarios/login.html">Login</a>
-                <a href="../Reserva/Calendario/Html/index.html">Reserva</a>
-                <a href="../Comentarios/Comentarios/index.html">Comentarios</a>
+                <a id="logoutBtn">Salir</a>
             </nav>
 
         </div>
@@ -123,5 +120,12 @@
             </table>
         </div>
     </div>
+
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+          localStorage.removeItem('currentUser');
+          window.location.href = '../Inicio/index.html';
+        });
+      </script>
 </body>
 </html>

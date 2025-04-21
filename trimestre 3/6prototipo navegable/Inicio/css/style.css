@@ -13,6 +13,8 @@ body{
     background-color: #F2F0EB;
 }
 
+
+
 .contenedor2 {
     width: 90%;
     margin: auto;
@@ -48,7 +50,7 @@ section{
 .footer-section h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: var(--light-color);
+    color: #fff;
 }
 
 .footer-section p {
@@ -76,7 +78,7 @@ section{
     overflow: hidden;   
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-image: url(../img/banner.jpeg);
+    background-image: url(../img/Restausync.png);
     background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
     background-position: center; /* Centra la imagen en el contenedor */
     margin: 0 auto; /* Centra el slider horizontalmente */

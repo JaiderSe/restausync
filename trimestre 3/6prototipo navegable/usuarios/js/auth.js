@@ -42,9 +42,19 @@ function checkAuth() {
  */
 function redirectByRole(role) {
     if (role === 'admin') {
-        window.location.href = 'admin/dashboard.html';
-    } else {
-        window.location.href = 'cliente/productos.html';
+        window.location.href = 'admin/index.html';
+    } 
+    else if (role === 'cliente') {
+        window.location.href = '../../Inicio/index.html';
+    }
+    else if (role === 'cocinero') {
+        window.location.href = 'cocinero/index.html';
+    }
+    else if (role === 'mesero') {
+        window.location.href = '../../Pedidos/index.html';
+    }
+    else {
+        window.location.href = '../../Inicio/index.html';
     }
 }
 

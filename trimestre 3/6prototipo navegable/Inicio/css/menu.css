@@ -65,6 +65,7 @@ header label{
 .menu a:hover{
     background: #6e2027;
     color: #e4dfd6;
+    cursor: pointer;
 }
 
 #menu-bar:checked ~ .menu{

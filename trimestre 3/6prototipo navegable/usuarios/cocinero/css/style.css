@@ -1,3 +1,5 @@
+@import url(../../../Inicio/css/menu.css);
+
 body {
     font-family: Arial, sans-serif;
     background-color: #F2F0EB;
@@ -5,13 +7,14 @@ body {
   }
   
   h2 {
+    margin-top: 50px;
     text-align: center;
     color: #000000;
   }
   
   table {
     width: 75%;
-    margin: 0 auto;
+    margin: 100px auto;
     border-collapse: collapse;
     background-color: #400D11;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
