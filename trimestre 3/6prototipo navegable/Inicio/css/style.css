@@ -10,28 +10,7 @@
 }
 body{
     font-family: 'Arial', sans-serif;
-
-}
-#blog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px; /* Ajusta según sea necesario para evitar que se superponga con el header */
-}
-
-header{
-    width: 100%;
-    height: 50px;
-    background: #460303;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-.contenedor{
-    width: 90%;
-    margin: auto;
+    background-color: #F2F0EB;
 }
 
 .contenedor2 {
@@ -45,14 +24,7 @@ header{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-h1{
-    float: left;
-}
 
-header .contenedor {
-    display: table;
-    
-}
 section{
     width: 100%;
     margin-bottom: 25px;
@@ -96,26 +68,26 @@ section{
 .sociales a{
     text-decoration: none;
     color: #ffffff;
-}
+} 
+
 .slideshow {
-    position: relative;
     width: 100%;
     max-width: 800px;
-    overflow: hidden;
+    overflow: hidden;   
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: url(../img/1.jpg);
+    background-image: url(../img/banner.jpeg);
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
     margin: 0 auto; /* Centra el slider horizontalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .slides {
+    text-align: center;
     display: flex;
+    flex-direction: row; /* Asegura que las imágenes estén en fila */
     width: 300%; /* 100% por cada imagen */
     animation: slide 9s infinite; /* 3 segundos por imagen */
-    
 }
 
 .slides img {
