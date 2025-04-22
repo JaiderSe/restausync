@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Restaurante</title>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
+
 <body>
     <div class="container">
-       
+
         <aside class="sidebar">
             <h2>Admin Panel</h2>
             <nav>
@@ -18,17 +20,18 @@
                     <li><a href="#mesas">Asignar Mesas</a></li>
                     <li><a href="#restaurante">Info Restaurante</a></li>
                     <li><a href="../register.html">Registrar</a></li>
-                    <li><a href="/trimestre 3/6prototipo navegable/Inventario/Inventario.html">Gestionar Inventario</a></li>
-                    
-                    <button id="logoutBtn">Cerrar sesión</button>
-                    
+                    <li><a href="/trimestre 3/6prototipo navegable/Inventario/Inventario.html">Gestionar Inventario</a>
+                    </li>
                 </ul>
             </nav>
+            <div class="logout">
+                <button id="logoutBtn">Cerrar sesión</button>  
+            </div>
         </aside>
 
-      
+
         <main class="main-content">
-            
+
             <section id="clientes">
                 <h1>Ver Clientes</h1>
                 <div class="client-list">
@@ -53,7 +56,7 @@
                 </div>
             </section>
 
-            
+
             <section id="gestion">
                 <h1>Gestionar Accesos</h1>
                 <div class="access-form">
@@ -61,7 +64,7 @@
                         <option value="admin">Administrador</option>
                         <option value="mesero">Mesero</option>
                         <option value="cocinero">Cocinero</option>
-                        
+
 
                     </select>
                     <input type="text" placeholder="Nombre de usuario">
@@ -69,7 +72,7 @@
                 </div>
             </section>
 
-           
+
             <section id="mesas">
                 <h1>Asignar Mesas</h1>
                 <div class="table-grid">
@@ -83,10 +86,27 @@
                         <p>Estado: Ocupada</p>
                         <button>Reasignar</button>
                     </div>
+                    <div class="table-card">
+                        <h3>Mesa 3</h3>
+                        <p>Estado: Libre</p>
+                        <button>Asignar</button>
+                    </div>
+                    <div class="table-card
+">
+                        <h3>Mesa 4</h3>
+                        <p>Estado: Ocupada</p>
+                        <button>Reasignar</button>
+                    </div>
+                    <div class="table-card">
+                        <h3>Mesa 5</h3>
+                        <p>Estado: Libre</p>
+                        <button>Asignar</button>
+                    </div>
+
                 </div>
             </section>
 
-            
+
             <section id="restaurante">
                 <h1>Información del Restaurante</h1>
                 <div class="restaurant-info">
@@ -101,11 +121,12 @@
 
     <script>
         // Cerrar sesión
-        document.getElementById('logoutBtn').addEventListener('click', function() {
+        document.getElementById('logoutBtn').addEventListener('click', function () {
             localStorage.removeItem('currentUser');
             window.location.href = '../../Inicio/index.html';
         });
     </script>
 
 </body>
+
 </html>

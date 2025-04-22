@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>RestauSync</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/fontello.css">
+    <link rel="stylesheet" href="./fontello/css/fontello.css">
 </head>
 
 <body>
     <header>
         <div class="contenedor">
 
-            <h1> <a href="../Inicio/index.html">Restausync</a></h1>   
-                <input type="checkbox" id="menu-bar">
-                <label class="align-justify" for="menu-bar"></label>
-                
+            <h1> <a href="../Inicio/index.html">Restausync</a></h1>
+            <input type="checkbox" id="menu-bar">
+            <label class="align-justify" for="menu-bar"></label>
+
             <nav class="menu">
-                <a href="../Pedidos/index.html">Pedidos</a>
-                <a href="../usuarios/login.html">Login</a>
+
                 <a href="../Reserva/Calendario/Html/index.html">Reserva</a>
                 <a href="../Comentarios/Comentarios/index.html">Comentarios</a>
+                <a href="../usuarios/login.html">Inicia Sesión</a>
             </nav>
 
         </div>
 
-        
+
 
     </header>
 
@@ -35,16 +36,16 @@
             <img src="./img/banner.jpeg" alt="banner">
 
             <div class="contenedor">
-                <h2>Bienvenidos a Restausync</h2>
-                <h2>Barriga llena vida contenta</h2>
+                <h2>Bienvenidos a Restausync,</h2>
+                <h2>barriga llena vida y contenta.</h2>
                 <p>¿De qué te antojas hoy?</p>
-                <a href="#Bienvenidos" class="btn">Leer más</a>
+                <a href="#menu" class="btn">Ver más</a>
 
         </section>
 
         <section id="Bienvenidos">
-            <h2 style="text-align: center;">Bienvenidos a nuestro restaurante</h2>
-            <p style="text-align: center;">Las mejores comidas para las mejores ocaciones</p>
+            <h2>Bienvenidos a nuestro restaurante</h2>
+            <p>Las mejores comidas para las mejores ocaciones</p>
         </section>
 
         <section id="Blog">
@@ -52,33 +53,52 @@
                 <div class="slides">
                     <img src="./img/1.jpg" alt="Imagen 1">
                     <img src="./img/2.jpg" alt="Imagen 2">
-                    <img src="./img/3.jpg" alt="Imagen 3">
-             
-                </div>
-            </div>
-         
-        </section>
 
-        
 
-        <section id="info">
-
-            <h2 style="text-align: center;">Menú del día</h2>
-            
-            <div class="contenedor collage" style="display: flex; justify-content: center; align-items: center; gap: 15px; padding: 30px;">
-                <div class="info-cake">
-                    <img src="./img/4.jpeg" alt="Torta de maracuya" style="float: left; margin-right: 15px;">
-                </div>
-                <div class="info-cake">
-                    <img src="./img/5.jpeg" alt="Torta de chocolate" style="float: left; margin-right: 15px;">
-                </div>
-                <div class="info-cake">
-                    <img src="./img/6.jpeg" alt="Torta de fresa" style="float: left; margin-right: 15px;">
                 </div>
             </div>
 
-            
         </section>
+
+
+
+        <section class="catalogo">
+            <h2 id="menu">Menú del Día</h2>
+            <div class="grid-platos">
+
+                <div class="plato-card">
+                    <img src="./img/ensalada-cesar.jpg" alt="Ensalada César" />
+                    <h3>Ensalada César</h3>
+                    <p>Lechuga fresca, crutones y aderezo especial.</p>
+                    <span class="precio">$19.900</span>
+                </div>
+
+                <div class="plato-card">
+                    <img src="./img/pasta-alfredo.jpeg" alt="Pasta Alfredo" />
+                    <h3>Pasta Alfredo</h3>
+                    <p>Salsa cremosa de queso con trozos de pollo.</p>
+                    <span class="precio">$24.000</span>
+                </div>
+
+                <div class="plato-card">
+                    <img src="./img/flan.jpg" alt="Flan casero" />
+                    <h3>Flan casero</h3>
+                    <p>Postre tradicional con caramelo suave.</p>
+                    <span class="precio">$8.000</span>
+                </div>
+
+                <div class="plato-card">
+                    <img src="./img/pizza_napolitana.jpg" alt="Pizza Napolitana" />
+                    <h3>Pizza Napolitana</h3>
+                    <p>Clásica pizza italiana con masa fina, salsa de tomate natural, mozzarella fresca, albahaca y un
+                        toque de aceite de oliva.</p>
+                    <span class="precio">$38.000</span>
+                </div>
+
+            </div>
+        </section>
+
+
 
     </main>
     <footer class="footer">
@@ -95,9 +115,9 @@
             <div class="footer-section">
                 <h3>Redes Sociales</h3>
                 <div class="social-icons">
-                    <a href="#">📱</a>
-                    <a href="#">📷</a>
-                    <a href="#">💻</a>
+                    <a href="https://www.instagram.com/restausync?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="icon-instagram"></i></a>
+                    <a href="https://wa.me/573128248943"><i class="icon-whatsapp"></i></a>
+                    <a href="https://github.com/JaiderSe/restausync"><i class="icon-github-circled"></i></a>
                 </div>
             </div>
         </div>
@@ -108,4 +128,5 @@
 
 
 </body>
+
 </html>

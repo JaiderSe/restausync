@@ -1,8 +1,6 @@
 @import url('menu.css');
 @import url('banner.css');
-@import url('info.css');
-@import url('log.css');
-
+@import url('menu_dia.css');
 *{
     margin: 0;
     padding: 0;
@@ -10,11 +8,31 @@
 }
 body{
     font-family: 'Arial', sans-serif;
-    background-color: #F2F0EB;
+    background-color: #22090b;
 }
 
+.social-icons i{
+    align-items: left;
+    font-size: 30px;
+    color: #fff;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    
+}
 
+#Bienvenidos p {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
 
+#Bienvenidos h2{
+
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+}
 .contenedor2 {
     width: 90%;
     margin: auto;
@@ -35,7 +53,7 @@ section{
     text-align: center;
 }
 .footer {
-    background-color: #460303;
+    background-color: #22090b;
     color: var(--light-color);
     padding: 3rem 5% 1rem;
     margin-top: 3rem;
@@ -88,15 +106,18 @@ section{
     text-align: center;
     display: flex;
     flex-direction: row; /* Asegura que las imágenes estén en fila */
-    width: 300%; /* 100% por cada imagen */
-    animation: slide 9s infinite; /* 3 segundos por imagen */
+    width: auto; /* 100% por cada imagen */
+    animation: slide 18s infinite; /* 3 segundos por imagen */
 }
 
 .slides img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
+.footer-bottom{
+    color: #fff;
+}
 @keyframes slide {
     0% { transform: translateX(0); }
     33.33% { transform: translateX(-100%); }
