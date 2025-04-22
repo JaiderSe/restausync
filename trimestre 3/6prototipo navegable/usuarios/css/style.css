@@ -1,3 +1,4 @@
+@import url(../../Inicio/css/menu.css);
 
 /* Estilos generales */
 * {
@@ -7,7 +8,7 @@
     font-family: 'Open Sans', sans-serif;
   }
 body {
-    background: linear-gradient(200deg, #592519, #290d07);
+    background-color: #22090b;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -36,18 +37,6 @@ h2 {
     height: 500px;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    margin: 0;
-}
 
 nav {
     display: flex;
@@ -175,7 +164,7 @@ th {
 .auth-container {
     max-width: 400px;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 40px 50px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -198,7 +187,7 @@ th {
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 0.5rem;
+    padding: 10px 29px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }

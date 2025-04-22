@@ -3,11 +3,29 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+
+    <header>
+        <div class="contenedor">
+
+            <h1> <a href="../Inicio/index.html">Restausync</a></h1>   
+                <input type="checkbox" id="menu-bar">
+                <label class="align-justify" for="menu-bar"></label>
+                
+            <nav class="menu">
+                <a href="../Pedidos/index.html">Pedidos</a>
+                <a href="../usuarios/login.html">Login</a>
+                <a href="../Reserva/Calendario/Html/index.html">Reserva</a>
+                <a href="../Comentarios/Comentarios/index.html">Comentarios</a>
+            </nav>
+
+        </div>
+
+    </header>
+
     <div class="auth-container">
         <form id="loginForm">
             <h2>Iniciar Sesión</h2>
@@ -47,12 +65,12 @@
                     window.location.href = './admin/index.html';
                 }
                 else if (user.role === 'mesero') {
-                    window.location.href = 'admin/dashboard.html';
+                    window.location.href = '../Pedidos/index.html';
                 } else if (user.role === 'cocinero') {
                     window.location.href = './cocinero/index.html';
                 } 
                 else {
-                    window.location.href = './cliente/productos.html';
+                    window.location.href = '../Inicio/index.html';
                 }
             } else {
                 alert('Credenciales incorrectas');

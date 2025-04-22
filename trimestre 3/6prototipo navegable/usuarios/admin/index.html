@@ -20,6 +20,8 @@
                     <li><a href="../register.html">Registrar</a></li>
                     <li><a href="/trimestre 3/6prototipo navegable/Inventario/Inventario.html">Gestionar Inventario</a></li>
                     
+                    <button id="logoutBtn">Cerrar sesión</button>
+                    
                 </ul>
             </nav>
         </aside>
@@ -96,5 +98,14 @@
             </section>
         </main>
     </div>
+
+    <script>
+        // Cerrar sesión
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../../Inicio/index.html';
+        });
+    </script>
+
 </body>
 </html>
