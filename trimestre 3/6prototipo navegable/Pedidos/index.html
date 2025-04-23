@@ -28,9 +28,10 @@
     <div class="container">
 
         <div class="new-order-container">
+
             <div class="new-order-form">
                 <h2>Nuevo Pedido</h2>
-                <form>
+                <form id="orderForm">
                     <div class="form-group">
                         <label for="customer">Cliente</label>
                         <input type="text" id="customer" placeholder="Nombre del cliente">
@@ -81,41 +82,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="status-pending priority-high">
-                        <td class="order-id">#001</td>
-                        <td>Juan Pérez</td>
-                        <td>Mesa 5</td>
-                        <td>Hamburguesa con queso, Papas fritas grandes</td>
-                        <td>Pendiente</td>
-                        <td class="timestamp">10:15 AM</td>
-                        <td>
-                            <button class="btn btn-prepare">Preparar</button>
-                            <button class="btn btn-details">Detalles</button>
-                        </td>
-                    </tr>
-                    <tr class="status-preparing">
-                        <td class="order-id">#002</td>
-                        <td>María Gómez</td>
-                        <td>Mesa 3</td>
-                        <td>Pizza Margarita, Refresco 500ml</td>
-                        <td>En preparación</td>
-                        <td class="timestamp">10:20 AM</td>
-                        <td>
-                            <button class="btn btn-ready">Listo</button>
-                            <button class="btn btn-details">Detalles</button>
-                        </td>
-                    </tr> 
-                    <tr class="status-ready">
-                        <td class="order-id">#003</td>
-                        <td>Carlos Ruiz</td>
-                        <td>Mesa 2</td>
-                        <td>Ensalada César, Jugo natural</td>
-                        <td>Listo</td>
-                        <td class="timestamp">10:25 AM</td>
-                        <td>
-                            <button class="btn btn-details">Detalles</button>
-                        </td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -127,5 +94,7 @@
           window.location.href = '../Inicio/index.html';
         });
       </script>
+
+      <script src="./js/mesero.js"></script>
 </body>
 </html>
