@@ -53,10 +53,11 @@ section{
     text-align: center;
 }
 .footer {
+    text-align: center;
     background-color: #22090b;
     color: var(--light-color);
     padding: 3rem 5% 1rem;
-    margin-top: 3rem;
+    margin-top: 50px;
 }
 .footer-content {
     display: grid;

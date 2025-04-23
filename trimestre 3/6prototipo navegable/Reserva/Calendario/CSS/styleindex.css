@@ -1,13 +1,5 @@
 @import url(../../../Inicio/css/menu.css);
 
-:root {
-    --verde: #3E5902;
-    --amarillo: #F2A20C;
-    --beige: #8C0303;
-    --marron: #592519;
-    --rojo: #8C0303;
-  }
-
   * {
     box-sizing: border-box;
     margin: 0;
@@ -56,7 +48,7 @@
   }
 
   button {
-    background-color: #a13416;
+    background-color: #8C0303;
     color: white;
     border: none;
     margin-top: 20px;

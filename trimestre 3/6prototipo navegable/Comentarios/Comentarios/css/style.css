@@ -1,7 +1,7 @@
 @import url(../../../Inicio/css/menu.css);
 body {
     font-family: Arial, sans-serif;
-    background-color: #8C0303;
+    background-color: #22090b;
     margin: 0;
     padding: 0;
     display: flex;
@@ -74,7 +74,7 @@ textarea {
 }
 
 button {
-    padding: 10px 15px;
+    padding: 9px 12px;
     background-color: #8C0303;
     color: #fff;
     border: none;
@@ -84,5 +84,5 @@ button {
 }
 
 button:hover {
-    background-color: #9f2626;
+    background-color: #6e2027;
 }

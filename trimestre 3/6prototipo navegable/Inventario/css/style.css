@@ -1,14 +1,15 @@
+@import url(../../Inicio/css/menu.css); 
+
 body {
     font-family: 'Arial', sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #F2F0EB;
+    background-color: #22090b;
 }
 
 .container {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 90px auto;
     background: #ffffff;
     padding: 20px;
     border-radius: 8px;
@@ -39,7 +40,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+.container button {
     background-color: #8C0303;
     color: white;
     padding: 10px 15px;
@@ -50,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: #9f2626;
+    background-color: #6e2027;
 }
 
 #cancelBtn {
@@ -58,7 +59,7 @@ button:hover {
 }
 
 #cancelBtn:hover {
-    background-color: #9f2626;
+    background-color: #6e2027;
 }
 
 table {
@@ -88,7 +89,6 @@ tr:nth-child(even) {
 }
 
 .action-btn {
-    item;
     padding: 7px 10px;
     margin: 0 2px;
 }

@@ -32,9 +32,8 @@ h2 {
   }
 
 #registerForm{
-
     width: 300px;
-    height: 500px;
+    height: auto;
 }
 
 
@@ -49,11 +48,10 @@ nav {
 }
 
 button {
-  
     width: 100%;
   padding: 12px;
   margin: 10px 0;
-  background: #592519;
+  background: #8C0303;
   border: none;
   color: #fff;
   font-weight: bold;
@@ -62,15 +60,15 @@ button {
 }
 
 button:hover {
-    background-color: #290d07;
+    background-color: #6e2027;
 }
 
 #logoutBtn {
-    background-color: #f44336;
+    background-color: #8C0303;
 }
 
 #logoutBtn:hover {
-    background-color: #d32f2f;
+    background-color: #6e2027;
 }
 
 /* Estilos para el panel de administración */

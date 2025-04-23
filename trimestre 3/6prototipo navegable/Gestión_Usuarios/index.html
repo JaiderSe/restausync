@@ -3,198 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Gestión de Usuarios</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    #searchInput {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-
-    th {
-      background-color: #333;
-      color: white;
-    }
-
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-
-    button {
-      padding: 6px 12px;
-      margin-right: 5px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .edit-btn {
-      background-color: #ffc107;
-      color: #000;
-    }
-
-    .delete-btn {
-      background-color: #dc3545;
-      color: #fff;
-    }
-
-    .save-btn {
-      background-color: #28a745;
-      color: white;
-    }
-
-    .cancel-btn {
-      background-color: #6c757d;
-      color: white;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <header>
+    <div class="contenedor">
 
-  <h1>Gestión de Usuarios</h1>
+        <h1> <a href="../Inicio/index.html">Restausync</a></h1>   
+            <input type="checkbox" id="menu-bar">
+            <label class="align-justify" for="menu-bar"></label>
+            <nav class="menu">
+              <a href="../usuarios/admin/index.html">Admin Panel</a>
+            </nav>
+    </div>
 
-  <input type="text" id="searchInput" placeholder="Buscar por nombre o correo...">
+</header>
 
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Teléfono</th>
-        <th>Fecha Registro</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody id="userTableBody"></tbody>
-  </table>
+<h1>Gestión de Usuarios</h1>
+<div class="form">
+<input type="text" id="buscador" placeholder="Buscar por nombre, correo o rol">
 
-  <script>
-    let usuarios = [
-      { id: 1, nombre: "Ana López", email: "ana@example.com", telefono: "123456789", fechaRegistro: "2025-04-01" },
-      { id: 2, nombre: "Carlos Gómez", email: "carlos@example.com", telefono: "987654321", fechaRegistro: "2025-04-10" },
-      { id: 3, nombre: "Luis Torres", email: "luis@example.com", telefono: "111222333", fechaRegistro: "2025-04-15" },
-      { id: 4, nombre: "María Ruiz", email: "maria@example.com", telefono: "444555666", fechaRegistro: "2025-04-20" }
-    ];
+<table id="tablaUsuarios">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Contraseña</th>
+      <th>Fecha de Creación</th>
+      <th>Rol</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="userTableBody"></tbody>
+</table>
 
-    const tbody = document.getElementById("userTableBody");
-    const searchInput = document.getElementById("searchInput");
-
-    function renderTabla(data) {
-      tbody.innerHTML = "";
-      data.forEach(usuario => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${usuario.id}</td>
-          <td contenteditable="false">${usuario.nombre}</td>
-          <td contenteditable="false">${usuario.email}</td>
-          <td contenteditable="false">${usuario.telefono}</td>
-          <td>${usuario.fechaRegistro}</td>
-          <td>
-            <button class="edit-btn" onclick="editarUsuario(this)">Editar</button>
-            <button class="delete-btn" onclick="eliminarUsuario(${usuario.id})">Eliminar</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    function editarUsuario(btn) {
-      const row = btn.closest("tr");
-      const tds = row.querySelectorAll("td");
-
-      for (let i = 1; i <= 3; i++) {
-        tds[i].setAttribute("contenteditable", "true");
-        tds[i].style.background = "#ffffe0";
-      }
-
-      btn.textContent = "Guardar";
-      btn.className = "save-btn";
-      btn.onclick = () => guardarUsuario(btn);
-      
-      const cancelBtn = document.createElement("button");
-      cancelBtn.textContent = "Cancelar";
-      cancelBtn.className = "cancel-btn";
-      cancelBtn.onclick = () => cancelarEdicion(btn);
-      btn.parentNode.appendChild(cancelBtn);
-    }
-
-    function guardarUsuario(btn) {
-      const row = btn.closest("tr");
-      const tds = row.querySelectorAll("td");
-      const id = parseInt(tds[0].textContent);
-
-      const updatedUser = {
-        id,
-        nombre: tds[1].textContent.trim(),
-        email: tds[2].textContent.trim(),
-        telefono: tds[3].textContent.trim(),
-        fechaRegistro: tds[4].textContent
-      };
-
-      const index = usuarios.findIndex(u => u.id === id);
-      usuarios[index] = updatedUser;
-
-      for (let i = 1; i <= 3; i++) {
-        tds[i].setAttribute("contenteditable", "false");
-        tds[i].style.background = "transparent";
-      }
-
-      btn.textContent = "Editar";
-      btn.className = "edit-btn";
-      btn.onclick = () => editarUsuario(btn);
-
-      const cancelBtn = btn.nextSibling;
-      if (cancelBtn) cancelBtn.remove();
-    }
-
-    function cancelarEdicion(btn) {
-      renderTabla(usuarios); // Re-render para restaurar datos
-    }
-
-    function eliminarUsuario(id) {
-      if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
-        usuarios = usuarios.filter(u => u.id !== id);
-        renderTabla(usuarios);
-      }
-    }
-
-    searchInput.addEventListener("input", function () {
-      const filtro = this.value.toLowerCase();
-      const filtrados = usuarios.filter(u =>
-        u.nombre.toLowerCase().includes(filtro) ||
-        u.email.toLowerCase().includes(filtro)
-      );
-      renderTabla(filtrados);
-    });
-
-    // Render inicial
-    renderTabla(usuarios);
-  </script>
+</div>
+ <script src="./java/script.js"></script>
 </body>
 </html>

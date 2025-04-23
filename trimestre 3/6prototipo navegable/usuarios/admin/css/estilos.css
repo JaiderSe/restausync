@@ -9,6 +9,7 @@ body {
   background: #22090b;
   color: #000000;
   line-height: 1.6;
+  margin: 0;
 }
 
 .container {
@@ -24,7 +25,7 @@ body {
   color: #000000;
   box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   position: fixed;
-  height: 100vh;
+  height: 100%;
 }
 
 .sidebar h2 {
@@ -178,7 +179,7 @@ h1 {
 .logout button{
   margin-left: 10px;
   margin-top: 350px;
-  background: #a13416;
+  background: #8C0303;
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -188,7 +189,7 @@ h1 {
 }
 button {
   padding: 10px 20px;
-  background: #a13416;
+  background: #8C0303;
   color: white;
   border: none;
   border-radius: 6px;

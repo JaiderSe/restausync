@@ -1,11 +1,4 @@
-:root {
-  --verde: #3E5902;
-  --amarillo: #F2A20C;
-  --beige: #8C0303;
-  --marron: #592519;
-  --rojo: #8C0303;
-}
-
+@import url(../../../Inicio/css/menu.css);
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,49 +7,51 @@
 }
 
 body {
-  background-color: var(--beige);
-  padding: 30px;
+  background-color: #22090b ;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 90px 70px;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
   color: white;
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 30px;
-  animation: fadeIn 1s ease-in-out;
+  
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 6px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  animation: slideUp 1s ease-in-out;
 }
 
 th, td {
+
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #797979;
 }
 
 th {
-  background-color: var(--verde);
-  color: white;
-  font-weight: bold;
+  background-color: #ddd;
+  color: rgb(0, 0, 0);
 }
 
 tr:hover {
-  background-color: var(--amarillo);
-  color: var(--marron);
-  transition: 0.3s;
+  background-color: #dad9d9;
 }
 
 button {
-  background-color: var(--rojo);
+  background-color: #8C0303;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -66,15 +61,10 @@ button {
 }
 
 button:hover {
-  background-color: var(--marron);
+  background-color: #6e2027;
 }
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: var(--marron);
-}
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
@@ -89,9 +79,9 @@ footer {
   footer {
     text-align: center;
     margin-top: 40px;
-    font-size: 1.2rem; /* Aumenta el tamaño */
+    font-size: 16px; /* Aumenta el tamaño */
     color: white;      /* Cambia el color a blanco */
-    background-color: #3E5902; /* Opcional: fondo más visible */
+    background-color: transparent; /* Opcional: fondo más visible */
     padding: 20px;
   }
   
