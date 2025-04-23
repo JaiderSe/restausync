@@ -44,6 +44,7 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 
 **📊 Presentación trimestre 2:**
 [Link]([https://docs.google.com/presentation/d/1oB6k4QIMxJEdAeV6bUasqtCnlSp9KzXe/edit?usp=drive_link&ouid=104681654974810316499&rtpof=true&sd=true](https://docs.google.com/presentation/d/1oB6k4QIMxJEdAeV6bUasqtCnlSp9KzXe/edit?usp=sharing&ouid=104681654974810316499&rtpof=true&sd=true))
+
 **📊 Presentación trimestre 3:**
 [Link]([https://docs.google.com/presentation/d/1oB6k4QIMxJEdAeV6bUasqtCnlSp9KzXe/edit?usp=drive_link&ouid=104681654974810316499&rtpof=true&sd=true](https://docs.google.com/presentation/d/1YPNXa6ZauhpDQq5R15n4pxE0JnbpGSFp/edit?usp=sharing&ouid=104681654974810316499&rtpof=true&sd=true))
 
