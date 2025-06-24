@@ -18,17 +18,73 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 ## 📁 Estructura del Proyecto
 
  ```text
-   /Restausync
-├── app.exe
-├── Documento
-    └── link
-├── README.md
-├── presentación
-    └── link
-├── video
-│   └── video.mp4
-└── data
-└── main.cpp
+  /menumaster/
+│
+├── app.py                  # Punto de entrada principal de la aplicación
+├── config.py               # Configuraciones (base de datos, secretos)
+├── requirements.txt        # Dependencias de Python
+│
+├── static/                 # Archivos estáticos
+│   ├── css/
+│   │   └── styles.css      # Estilos personalizados
+│   ├── js/
+│   │   └── scripts.js      # JavaScript personalizado
+│   └── images/             # Imágenes del sitio
+│
+├── templates/              # Vistas (HTML con Jinja2)
+│   ├── base.html           # Plantilla base
+│   ├── partials/           # Componentes reutilizables
+│   │   ├── navbar.html
+│   │   ├── footer.html
+│   │   └── messages.html
+│   │
+│   ├── auth/               # Autenticación
+│   │   ├── login.html
+│   │   └── register.html
+│   │
+│   ├── menu/               # Gestión de menú
+│   │   ├── list.html
+│   │   ├── create.html
+│   │   ├── edit.html
+│   │   └── detail.html
+│   │
+│   ├── orders/             # Pedidos
+│   │   ├── new.html
+│   │   ├── list.html
+│   │   └── detail.html
+│   │
+│   └── inventory/          # Inventario
+│       ├── list.html
+│       └── movements.html
+│
+└── app/                    # Lógica de la aplicación (MVC)
+    ├── __init__.py         # Factory de la aplicación
+    │
+    ├── models/             # Modelos (MySQL)
+    │   ├── user.py
+    │   ├── dish.py
+    │   ├── ingredient.py
+    │   ├── order.py
+    │   └── __init__.py
+    │
+    ├── controllers/        # Controladores
+    │   ├── auth_controller.py
+    │   ├── menu_controller.py
+    │   ├── order_controller.py
+    │   ├── inventory_controller.py
+    │   └── __init__.py
+    │
+    ├── services/           # Lógica de negocio
+    │   ├── auth_service.py
+    │   ├── menu_service.py
+    │   └── order_service.py
+    │
+    ├── utils/              # Utilidades
+    │   ├── decorators.py
+    │   ├── db.py           # Conexión a MySQL
+    │   └── helpers.py
+    │
+    └── templates/          # Sobreescribe plantillas específicas si es necesario
    ```
 **🖥 Página Web:** 
 [Link](https://drive.google.com/drive/folders/1sXHN52Wap0UovdsT4diPcBXqt-dIDT79?usp=sharing)
