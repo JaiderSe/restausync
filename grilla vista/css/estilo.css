@@ -1,0 +1,83 @@
+body {
+    background-color: #8c0303;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.btn-submit {
+    background-color: #f2a20c;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #690d0d;
+}
+
+h1 {
+    color: #d9b29c;
+}
+
+.btn-filter {
+    background-color: #f2a20c;
+}
+
+.btn-filter.active {
+    background-color: #8c0303;
+    color: white;
+}
+
+.table {
+    background-color: white;
+}
+
+.table thead {
+    background-color: #f2a20c;
+}
+
+.status-pending {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.status-preparing {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+.status-ready {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.btn-action {
+    background-color: #3e5902;
+    color: white;
+}
+
+.btn-action:hover {
+    background-color: #273801;
+}
+
+.btn-details {
+    background-color: #8c0303;
+    color: white;
+}
+
+.btn-details:hover {
+    background-color: #470202;
+}
+
+.order-id {
+    font-weight: bold;
+}
+
+.priority-high {
+    border-left: 4px solid #d32f2f;
+}

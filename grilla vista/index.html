@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+    <div class="container my-4">
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-md-6">
+                <div class="card p-3">
+                    <h2 class="mb-3">Nuevo Pedido</h2>
+                    <form id="new-order-form">
+                        <div class="mb-3">
+                            <label for="cliente" class="form-label">Cliente</label>
+                            <input type="text" class="form-control" id="cliente" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="items" class="form-label">Items</label>
+                            <textarea class="form-control" id="items" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="prioridad" class="form-label">Prioridad</label>
+                            <select class="form-select" id="prioridad">
+                                <option value="normal">Normal</option>
+                                <option value="alta">Alta</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-submit w-100">Crear Pedido</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-3 text-light">Gestión de Pedidos - Cocina</h1>
+                <div class="d-flex gap-2 mb-3">
+                    <button class="btn btn-filter active" data-filter="all">Todos</button>
+                    <button class="btn btn-filter" data-filter="pending">Pendientes</button>
+                    <button class="btn btn-filter" data-filter="preparing">En Preparación</button>
+                    <button class="btn btn-filter" data-filter="ready">Listos</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Items</th>
+                                <th>Estado</th>
+                                <th>Hora</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-table-body">
+                            <tr class="priority-high">
+                                <td class="order-id">#001</td>
+                                <td>Juan Pérez</td>
+                                <td>Hamburguesa con queso, Papas fritas grandes</td>
+                                <td class="status-pending">Pendiente</td>
+                                <td>10:15 AM</td>
+                                <td>
+                                    <button class="btn btn-action" data-action="prepare">Preparar</button>
+                                    <button class="btn btn-details" data-id="#001">Detalles</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="order-id">#002</td>
+                                <td>María Gómez</td>
+                                <td>Pizza Margarita, Refresco 500ml</td>
+                                <td class="status-preparing">En preparación</td>
+                                <td>10:20 AM</td>
+                                <td>
+                                    <button class="btn btn-action" data-action="ready">Listo</button>
+                                    <button class="btn btn-details" data-id="#002">Detalles</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="order-id">#003</td>
+                                <td>Carlos Ruiz</td>
+                                <td>Ensalada César, Jugo natural</td>
+                                <td class="status-ready">Listo</td>
+                                <td>10:25 AM</td>
+                                <td>
+                                    <button class="btn btn-details" data-id="#003">Detalles</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<script>
+        
+        document.querySelectorAll('.btn-filter').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.dataset.filter;
+                const rows = document.querySelectorAll('#order-table-body tr');
+                
+                rows.forEach(row => {
+                    const statusCell = row.querySelector('td:nth-child(4)');
+                    if (filter === 'all') {
+                        row.style.display = '';
+                    } else if (
+                        (filter === 'pending' && statusCell.classList.contains('status-pending')) ||
+                        (filter === 'preparing' && statusCell.classList.contains('status-preparing')) ||
+                        (filter === 'ready' && statusCell.classList.contains('status-ready'))
+                    ) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Manejo de botones de acción
+        document.querySelectorAll('.btn-action').forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.dataset.action;
+                const row = button.closest('tr');
+                const statusCell = row.querySelector('td:nth-child(4)');
+                const actionCell = row.querySelector('td:last-child');
+
+                if (action === 'prepare') {
+                    statusCell.textContent = 'En preparación';
+                    statusCell.className = 'status-preparing';
+                    button.textContent = 'Listo';
+                    button.dataset.action = 'ready';
+                } else if (action === 'ready') {
+                    statusCell.textContent = 'Listo';
+                    statusCell.className = 'status-ready';
+                    button.remove();
+                }
+            });
+        });
+
+        // Manejo de botones de detalles
+        document.querySelectorAll('.btn-details').forEach(button => {
+            button.addEventListener('click', () => {
+                const orderId = button.dataset.id;
+                alert(`Detalles del pedido ${orderId}`);
+            });
+        });
+
+        // Manejo del formulario
+        document.getElementById('new-order-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const cliente = document.getElementById('cliente').value;
+            const items = document.getElementById('items').value;
+            const prioridad = document.getElementById('prioridad').value;
+            const newId = `#${(Math.max(...Array.from(document.querySelectorAll('.order-id')).map(id => parseInt(id.textContent.slice(1)))) + 1).toString().padStart(3, '0')}`;
+            const now = new Date();
+            const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            const newRow = document.createElement('tr');
+            if (prioridad === 'alta') newRow.classList.add('priority-high');
+            newRow.innerHTML = `
+                <td class="order-id">${newId}</td>
+                <td>${cliente}</td>
+                <td>${items}</td>
+                <td class="status-pending">Pendiente</td>
+                <td>${time}</td>
+                <td>
+                    <button class="btn btn-action" data-action="prepare">Preparar</button>
+                    <button class="btn btn-details" data-id="${newId}">Detalles</button>
+                </td>
+            `;
+            document.getElementById('order-table-body').prepend(newRow);
+            document.getElementById('new-order-form').reset();
+
+            // Reasignar eventos a los nuevos botones
+            newRow.querySelector('.btn-action').addEventListener('click', () => {
+                const row = newRow;
+                const statusCell = row.querySelector('td:nth-child(4)');
+                const actionCell = row.querySelector('td:last-child');
+                statusCell.textContent = 'En preparación';
+                statusCell.className = 'status-preparing';
+                newRow.querySelector('.btn-action').textContent = 'Listo';
+                newRow.querySelector('.btn-action').dataset.action = 'ready';
+            });
+            newRow.querySelector('.btn-details').addEventListener('click', () => {
+                alert(`Detalles del pedido ${newId}`);
+            });
+        });
+    </script>
+</body>
+</html>
