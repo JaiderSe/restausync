@@ -2,11 +2,14 @@
 from flask import Blueprint, flash, render_template, request, redirect, url_for
 from app.models.ingrediente import db, Ingrediente
 
-
-
 ingredientes_bp = Blueprint('ingredientes', __name__)
 
-@ingredientes_bp.route('/ingredientes')
+@ingredientes_bp.route('/')
+def home():
+    return redirect(url_for('ingredientes.index'))
+
+
+@ingredientes_bp.route('/ingredientes')        
 def index():
     ingredientes = Ingrediente.query.all()
     return render_template('ingredientes/index.html', ingredientes=ingredientes)
