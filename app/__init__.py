@@ -1,7 +1,5 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask import Flask
 from flask import Flask
 from .routes.ingredientes_routes import ingredientes_bp
 
@@ -15,7 +13,7 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app)
 
     # Registro de Blueprints
     app.register_blueprint(ingredientes_bp)
