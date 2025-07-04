@@ -1,0 +1,20 @@
+</html><h1>Lista de Ingredientes</h1>
+<table>
+  <tr>
+    <th>Nombre</th><th>Stock</th><th>Proveedor</th><th>Acciones</th>
+  </tr>
+  {% for ing in ingredientes %}
+  <tr>
+    <td>{{ ing.nombre }}</td>
+    <td>{{ ing.stock_actual }}</td>
+    <td>{{ ing.proveedor_principal }}</td>
+    <td><a href="#">Editar</a> | <a href="#">Eliminar</a></td>
+  </tr>
+  {% endfor %}
+</table>
+<form method="POST" action="{{ url_for('ingredientes.eliminar', id=ing.ingrediente_id) }}" style="display:inline-block;">
+  <button type="submit" class="btn btn-danger btn-sm"
+          onclick="return confirm('¿Seguro que deseas eliminar este ingrediente?');">
+    Eliminar
+  </button>
+</form>

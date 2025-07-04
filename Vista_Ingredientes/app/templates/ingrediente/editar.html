@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Editar Ingrediente</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input type="text" name="nombre" class="form-control" value="{{ ingrediente.nombre }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Unidad de medida</label>
+    <input type="text" name="unidad_medida" class="form-control" value="{{ ingrediente.unidad_medida }}">
+  </div>
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Stock Actual</label>
+      <input type="number" name="stock_actual" class="form-control" value="{{ ingrediente.stock_actual }}" min="0">
+    </div>
+    <div class="col">
+      <label class="form-label">Stock Mínimo</label>
+      <input type="number" name="stock_minimo" class="form-control" value="{{ ingrediente.stock_minimo }}" min="0">
+    </div>
+  </div>
+  <div class="mb-3 mt-3">
+    <label class="form-label">Proveedor</label>
+    <input type="text" name="proveedor_principal" class="form-control" value="{{ ingrediente.proveedor_principal }}">
+  </div>
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Costo por unidad</label>
+      <input type="number" step="0.01" name="costo_por_unidad" class="form-control" value="{{ ingrediente.costo_por_unidad }}">
+    </div>
+    <div class="col">
+      <label class="form-label">Días de caducidad</label>
+      <input type="number" name="dias_caducidad" class="form-control" value="{{ ingrediente.dias_caducidad }}" min="0">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success mt-3">Actualizar</button>
+</form>
+{% endblock %}
