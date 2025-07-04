@@ -1,6 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
+from .. import db
 
-db = SQLAlchemy()
 
 class Ingrediente(db.Model):
     __tablename__ = 'ingredientes'
