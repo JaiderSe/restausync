@@ -1,5 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from models.ingrediente import db, Ingrediente
+
+from flask import Blueprint, flash, render_template, request, redirect, url_for
+from app.models.ingrediente import db, Ingrediente
+
+
 
 ingredientes_bp = Blueprint('ingredientes', __name__)
 
