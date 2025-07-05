@@ -1,6 +1,6 @@
 # app/controllers/admin_controller.py
 from flask import Blueprint, render_template, session, redirect, url_for, current_app
-from app.models.user_model import get_user_by_id
+from app.models.user import get_user_by_id
 from app.models.product_model import get_product_count
 from app.models.category_model import get_category_count
 

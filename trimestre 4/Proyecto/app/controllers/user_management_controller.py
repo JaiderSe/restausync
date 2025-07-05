@@ -3,7 +3,7 @@ from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
 import os
 
-from app.models.user_model import (
+from app.models.user import (
     get_all_users_with_roles,
     get_user_by_email_full,
     update_user,

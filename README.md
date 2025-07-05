@@ -18,44 +18,12 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 ## 📁 Estructura del Proyecto
 
  ```text
-  /menumaster/
+  /Restausync/
 │
 ├── app.py                  # Punto de entrada principal de la aplicación
 ├── config.py               # Configuraciones (base de datos, secretos)
 ├── requirements.txt        # Dependencias de Python
 │
-├── static/                 # Archivos estáticos
-│   ├── css/
-│   │   └── styles.css      # Estilos personalizados
-│   ├── js/
-│   │   └── scripts.js      # JavaScript personalizado
-│   └── images/             # Imágenes del sitio
-│
-├── templates/              # Vistas (HTML con Jinja2)
-│   ├── base.html           # Plantilla base
-│   ├── partials/           # Componentes reutilizables
-│   │   ├── navbar.html
-│   │   ├── footer.html
-│   │   └── messages.html
-│   │
-│   ├── auth/               # Autenticación
-│   │   ├── login.html
-│   │   └── register.html
-│   │
-│   ├── menu/               # Gestión de menú
-│   │   ├── list.html
-│   │   ├── create.html
-│   │   ├── edit.html
-│   │   └── detail.html
-│   │
-│   ├── orders/             # Pedidos
-│   │   ├── new.html
-│   │   ├── list.html
-│   │   └── detail.html
-│   │
-│   └── inventory/          # Inventario
-│       ├── list.html
-│       └── movements.html
 │
 └── app/                    # Lógica de la aplicación (MVC)
     ├── __init__.py         # Factory de la aplicación

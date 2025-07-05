@@ -4,7 +4,7 @@ from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
 import os
 
-from app.models.user_model import get_user_by_email, insert_user, get_user_basic_profile
+from app.models.user import get_user_by_email, insert_user, get_user_basic_profile
 from app.models.role_model import get_all_roles
 
 user_bp = Blueprint('user_bp', __name__)
