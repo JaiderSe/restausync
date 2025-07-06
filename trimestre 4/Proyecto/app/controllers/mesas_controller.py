@@ -1,7 +1,14 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, session, jsonify
 from app.models.mesa import Mesa
 
-mesas_bp = Blueprint('mesas', __name__, url_prefix='/mesas')
+mesas_bp = Blueprint('mesas', __name__)
+
+@mesas_bp.before_request
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+    request.bcrypt = current_app.bcrypt
 
 @mesas_bp.route('/')
 def listar_mesas():
@@ -21,7 +28,7 @@ def listar_mesas():
     
     except Exception as e:
         flash(f'Error al obtener mesas: {str(e)}', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.home'))
 
 @mesas_bp.route('/crear', methods=['GET', 'POST'])
 def crear_mesa():

@@ -5,7 +5,7 @@ from app.models.platillo import Platillo
 from app.models.cliente import Cliente
 from datetime import datetime
 
-mesero_bp = Blueprint('mesero', __name__, url_prefix='/mesero')
+mesero_bp = Blueprint('mesero', __name__)
 
 @mesero_bp.before_request
 def check_mesero():
@@ -13,10 +13,12 @@ def check_mesero():
     if session.get('user_role') != 'mesero':
         flash('Acceso restringido a meseros', 'danger')
         return redirect(url_for('main.dashboard'))
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+    request.bcrypt = current_app.bcrypt
 
-# --------------------------------------------------
-# Dashboard del Mesero
-# --------------------------------------------------
 @mesero_bp.route('/dashboard')
 def dashboard():
     """Vista principal del mesero con mesas"""
@@ -29,11 +31,8 @@ def dashboard():
                             user_role=session.get('user_role'))
     except Exception as e:
         flash(f'Error al cargar el dashboard: {str(e)}', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.home'))
 
-# --------------------------------------------------
-# Gestión de Mesas
-# --------------------------------------------------
 @mesero_bp.route('/mesas')
 def listar_mesas():
     """Lista todas las mesas con su estado actual"""
@@ -49,7 +48,7 @@ def listar_mesas():
                             mesas=mesas)
     except Exception as e:
         flash(f'Error al obtener mesas: {str(e)}', 'danger')
-        return redirect(url_for('mesero.dashboard'))
+        return redirect(url_for('main.home'))
 
 @mesero_bp.route('/mesas/<int:mesa_id>')
 def ver_mesa(mesa_id):
@@ -174,9 +173,7 @@ def cerrar_pedido(pedido_id):
         flash(f'Error al cerrar pedido: {str(e)}', 'danger')
         return redirect(url_for('mesero.listar_mesas'))
 
-# --------------------------------------------------
-# Gestión de Clientes
-# --------------------------------------------------
+
 @mesero_bp.route('/clientes/registrar', methods=['POST'])
 def registrar_cliente():
     """Registra un nuevo cliente desde la vista del mesero"""

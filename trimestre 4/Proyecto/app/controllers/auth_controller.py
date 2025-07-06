@@ -30,7 +30,7 @@ def login():
             elif user['rol'] == 'chef':
                 return render_template('chef/dashboard.html')
             elif user['rol'] == 'mesero':
-                return render_template('mesero/dashboard.html')
+                return render_template('mesero/dashboard.html', usuarios=[user])
             elif user['rol'] == 'inventario':
                 return render_template('inventario/dashboard.html')
             
@@ -78,7 +78,7 @@ def redirect_to_dashboard():
         elif user_role == 'chef':
             return render_template('chef/dashboard.html')
         elif user_role == 'mesero':
-            return render_template('mesero/dashboard.html')
+            return redirect(url_for('mesero.crear_pedido'))
         elif user_role == 'inventario':
             return render_template('inventario/dashboard.html')
         else:

@@ -31,6 +31,10 @@ def create_app():
     from app.controllers.mesas_controller import mesas_bp
     from app.controllers.pedidos_controller import pedidos_bp
     from app.controllers.platillos_controller import platillos_bp
+    from app.controllers.chef_controller import chef_bp
+    from app.controllers.inventario_controller import inventario_bp
+    from app.controllers.mesero_controller import mesero_bp
+    
     
     
     
@@ -42,6 +46,9 @@ def create_app():
     app.register_blueprint(mesas_bp)
     app.register_blueprint(pedidos_bp)
     app.register_blueprint(platillos_bp)
+    app.register_blueprint(chef_bp)
+    app.register_blueprint(inventario_bp)
+    app.register_blueprint(mesero_bp)
     
     
     

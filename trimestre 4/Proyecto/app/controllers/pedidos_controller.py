@@ -7,6 +7,12 @@ from datetime import datetime
 
 pedidos_bp = Blueprint('pedidos', __name__, url_prefix='/pedidos')
 
+@pedidos_bp.before_request
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+
 @pedidos_bp.route('/')
 def listar_pedidos():
     """Lista todos los pedidos"""
@@ -14,13 +20,13 @@ def listar_pedidos():
         # Verificar permisos
         if session.get('user_role') not in ['administrador', 'mesero', 'chef']:
             flash('No tienes permisos para esta sección', 'danger')
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.home'))
         
         pedido_model = Pedido(request.connection)
         
         # Filtrar según rol
         if session.get('user_role') == 'chef':
-            pedidos = pedido_model.get_pedidos_para_cocina()
+            pedidos = pedido_model.get_pedidos_para_cocina()    
         else:
             pedidos = pedido_model.get_all()
         
@@ -30,7 +36,7 @@ def listar_pedidos():
     
     except Exception as e:
         flash(f'Error al obtener pedidos: {str(e)}', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.home'))
 
 @pedidos_bp.route('/nuevo', methods=['GET', 'POST'])
 def crear_pedido():
@@ -106,7 +112,7 @@ def detalle_pedido(pedido_id):
         # Verificar permisos
         if session.get('user_role') not in ['administrador', 'mesero', 'chef']:
             flash('No tienes permisos para ver este pedido', 'danger')
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.home'))
         
         pedido_model = Pedido(request.connection)
         pedido = pedido_model.get_by_id(pedido_id)
@@ -160,7 +166,7 @@ def cerrar_pedido(pedido_id):
         # Verificar permisos
         if session.get('user_role') not in ['administrador', 'mesero']:
             flash('No tienes permisos para cerrar pedidos', 'danger')
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.home'))
         
         pedido_model = Pedido(request.connection)
         pedido = pedido_model.get_by_id(pedido_id)
