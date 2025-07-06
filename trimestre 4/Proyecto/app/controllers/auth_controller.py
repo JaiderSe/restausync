@@ -24,10 +24,21 @@ def login():
             session['user_name'] = user['nombre']
             session['user_role'] = user['rol']
             flash('Inicio de sesión exitoso!', 'success')
-            return redirect(url_for('main.home'))
+            # Redirigir o renderizar según el rol del usuario
+            if user['rol'] == 'administrador':
+                return render_template('admin/dashboard.html', usuarios=[user])
+            elif user['rol'] == 'chef':
+                return render_template('chef/dashboard.html')
+            elif user['rol'] == 'mesero':
+                return render_template('mesero/dashboard.html')
+            elif user['rol'] == 'inventario':
+                return render_template('inventario/dashboard.html')
+            
+            else:
+                return render_template('main/index.html')
         else:
             flash('Correo o contraseña incorrectos', 'danger')
-    
+
     return render_template('auth/login.html')
 
 @auth_bp.route('/register', methods=['GET', 'POST'])
@@ -37,7 +48,7 @@ def register():
         email = request.form['email']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
-        rol = 'mesero'  # Rol por defecto para nuevos registros
+        rol = 'mesero'  
         
         if password != confirm_password:
             flash('Las contraseñas no coinciden', 'danger')
@@ -58,6 +69,20 @@ def register():
             flash('Error al registrar el usuario', 'danger')
     
     return render_template('auth/register.html')
+
+@auth_bp.route('/dashboard1')
+def redirect_to_dashboard():
+        user_role = session.get('user_role')
+        if user_role == 'administrador':
+            return render_template('admin/dashboard.html', usuarios=[{'nombre': session.get('user_name')}])
+        elif user_role == 'chef':
+            return render_template('chef/dashboard.html')
+        elif user_role == 'mesero':
+            return render_template('mesero/dashboard.html')
+        elif user_role == 'inventario':
+            return render_template('inventario/dashboard.html')
+        else:
+            return redirect(url_for('main.home'))
 
 @auth_bp.route('/logout')
 def logout():

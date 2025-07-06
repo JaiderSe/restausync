@@ -29,3 +29,33 @@ class User:
         if user:
             return self.bcrypt.check_password_hash(user['contraseña_hash'], password)
         return False
+        
+    def get_all(self):
+        with self.connection.cursor() as cursor:
+            sql = "SELECT * FROM usuarios ORDER BY fecha_registro DESC"
+            cursor.execute(sql)
+            return cursor.fetchall()
+    
+    def get_by_id(self, user_id):
+        with self.connection.cursor() as cursor:
+            sql = "SELECT * FROM usuarios WHERE usuario_id = %s"
+            cursor.execute(sql, (user_id,))
+            return cursor.fetchone()
+    
+    def count(self):
+        with self.connection.cursor() as cursor:
+            sql = "SELECT COUNT(*) as total FROM usuarios"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result['total']
+    
+    def actualizar(self, user_id, nombre, email, rol, activo):
+        with self.connection.cursor() as cursor:
+            sql = """
+            UPDATE usuarios 
+            SET nombre = %s, email = %s, rol = %s, activo = %s
+            WHERE usuario_id = %s
+            """
+            cursor.execute(sql, (nombre, email, rol, activo, user_id))
+            self.connection.commit()
+            return cursor.rowcount > 0
