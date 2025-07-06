@@ -70,11 +70,11 @@ def register():
     
     return render_template('auth/register.html')
 
-@auth_bp.route('/dashboard1')
+@auth_bp.route('/dashboard')
 def redirect_to_dashboard():
         user_role = session.get('user_role')
         if user_role == 'administrador':
-            return render_template('admin/dashboard.html', usuarios=[{'nombre': session.get('user_name')}])
+            return redirect(url_for('admin.dashboard'))
         elif user_role == 'chef':
             return render_template('chef/dashboard.html')
         elif user_role == 'mesero':

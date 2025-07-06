@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for, session
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session, current_app
 from app.models.user import User
 from app.models.pedido import Pedido
 from app.models.platillo import Platillo
@@ -6,6 +6,13 @@ from app.models.mesa import Mesa
 from datetime import datetime, timedelta
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
+
+@admin_bp.before_request
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+    request.bcrypt = current_app.bcrypt
 
 @admin_bp.before_request
 def check_admin():
@@ -76,7 +83,7 @@ def crear_usuario():
                 return redirect(url_for('admin.crear_usuario'))
             
             # Crear usuario
-            user_model.create(nombre, email, password, rol)
+            user_model.create_user(nombre, email, password, rol)
             flash('Usuario creado exitosamente', 'success')
             return redirect(url_for('admin.listar_usuarios'))
         

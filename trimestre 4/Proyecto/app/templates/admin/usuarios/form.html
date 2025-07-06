@@ -16,7 +16,8 @@
             <form method="POST" action="{{ url_for('admin.crear_usuario') }}">
                
             {% else %}
-            <form mmethod="POST" action="{{ url_for('admin.editar_usuario') }}">
+            <form method="post" action="{{ url_for('admin.editar_usuario', usuario_id=usuario.usuario_id) }}">
+
             {% endif %}
                 <div class="row mb-3">
                     <div class="col-md-6">

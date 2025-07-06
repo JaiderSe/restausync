@@ -4,7 +4,13 @@
 
 {% block content %}
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Dashboard Administrativo</h1>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <h1>Dashboard Administrativo</h1>
+        <a href="{{ url_for('admin.listar_usuarios') }}" class="btn btn-outline-primary">
+            Gestión de Usuarios
+        </a>
+    </div>
+
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Resumen del sistema</li>
     </ol>
