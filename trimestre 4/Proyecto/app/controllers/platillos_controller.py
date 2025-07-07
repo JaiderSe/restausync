@@ -13,7 +13,7 @@ def listar_platillos():
         # Verificar permisos
         if session.get('user_role') not in ['administrador', 'chef']:
             flash('No tienes permisos para esta sección', 'danger')
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.home'))
         
         platillo_model = Platillo(request.connection)
         categoria_model = Categoria(request.connection)
@@ -27,7 +27,7 @@ def listar_platillos():
     
     except Exception as e:
         flash(f'Error al obtener platillos: {str(e)}', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.home'))
 
 @platillos_bp.route('/crear', methods=['GET', 'POST'])
 def crear_platillo():

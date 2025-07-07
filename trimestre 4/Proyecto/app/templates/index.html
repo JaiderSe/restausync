@@ -3,9 +3,9 @@
 {% block content %}
 <header class="bg-light py-5 text-center">
     <div class="container">
-        <h1 class="display-4">¡Bienvenidos a La Buena Mesa!</h1>
+        <h1 class="display-4">¡Bienvenidos a RestauSync!</h1>
         <p class="lead">Un restaurante familiar donde la tradición y el sabor se encuentran.</p>
-        <a href="#" class="btn btn-primary btn-lg mt-3">Ver Menú</a>
+        <a href="{{ url_for('menu.listar_platillos') }}" class="btn btn-primary btn-lg mt-3">Ver Menú</a>
     </div>
 </header>
 

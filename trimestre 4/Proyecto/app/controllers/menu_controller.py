@@ -6,6 +6,13 @@ import os
 
 menu_bp = Blueprint('menu', __name__, url_prefix='/menu')
 
+@menu_bp.before_request
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+    request.bcrypt = current_app.bcrypt
+
 @menu_bp.route('/')
 def listar_platillos():
     """Lista todos los platillos del menú"""
@@ -13,7 +20,7 @@ def listar_platillos():
         # Verificar rol de usuario
         if session.get('user_role') not in ['administrador', 'chef']:
             flash('No tienes permisos para esta sección', 'danger')
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.home'))
         
         # Obtener platillos y categorías
         platillo_model = Platillo(request.connection)
@@ -28,7 +35,7 @@ def listar_platillos():
     
     except Exception as e:
         flash(f'Error al obtener el menú: {str(e)}', 'danger')
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.home'))
 
 @menu_bp.route('/crear', methods=['GET', 'POST'])
 def crear_platillo():

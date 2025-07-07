@@ -12,9 +12,13 @@ def check_inventario():
         flash('Acceso restringido a personal de inventario', 'danger')
         return redirect(url_for('main.dashboard'))
 
-# --------------------------------------------------
-# Dashboard de Inventario
-# --------------------------------------------------
+@inventario_bp.before_request
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+    request.bcrypt = current_app.bcrypt
+
 @inventario_bp.route('/dashboard')
 def dashboard():
     """Vista principal de inventario con alertas"""

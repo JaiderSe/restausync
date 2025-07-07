@@ -26,13 +26,13 @@ def login():
             flash('Inicio de sesión exitoso!', 'success')
             # Redirigir o renderizar según el rol del usuario
             if user['rol'] == 'administrador':
-                return render_template('admin/dashboard.html', usuarios=[user])
+                return redirect(url_for('admin.dashboard'))
             elif user['rol'] == 'chef':
-                return render_template('chef/dashboard.html')
+                return redirect(url_for('chef.dashboard'))
             elif user['rol'] == 'mesero':
-                return render_template('mesero/dashboard.html', usuarios=[user])
+                return redirect(url_for('mesero.dashboard'))
             elif user['rol'] == 'inventario':
-                return render_template('inventario/dashboard.html')
+                return redirect(url_for('inventario.dashboard'))
             
             else:
                 return render_template('main/index.html')
@@ -76,11 +76,11 @@ def redirect_to_dashboard():
         if user_role == 'administrador':
             return redirect(url_for('admin.dashboard'))
         elif user_role == 'chef':
-            return render_template('chef/dashboard.html')
+            return redirect(url_for('chef.dashboard'))
         elif user_role == 'mesero':
-            return redirect(url_for('mesero.crear_pedido'))
+            return redirect(url_for('mesero.dashboard'))
         elif user_role == 'inventario':
-            return render_template('inventario/dashboard.html')
+            return redirect(url_for('inventario.dashboard'))
         else:
             return redirect(url_for('main.home'))
 

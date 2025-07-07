@@ -166,3 +166,20 @@ def configuracion():
             flash(f'Error al guardar configuración: {str(e)}', 'danger')
     
     return render_template('admin/configuracion.html')
+
+@admin_bp.route('/pedidos/<int:pedido_id>')
+def ver_pedido(pedido_id):
+    """Muestra los detalles de un pedido específico"""
+    try:
+        pedido_model = Pedido(request.connection)
+        pedido = pedido_model.get_by_id(pedido_id)
+        
+        if not pedido:
+            flash('Pedido no encontrado', 'danger')
+            return redirect(url_for('mesero.listar_mesas'))
+        
+        return render_template('mesero/pedidos/detalle.html',
+                            pedido=pedido)
+    except Exception as e:
+        flash(f'Error al obtener pedido: {str(e)}', 'danger')
+        return redirect(url_for('mesero.listar_mesas'))

@@ -12,9 +12,13 @@ def check_chef():
         flash('Acceso restringido a chefs', 'danger')
         return redirect(url_for('main.dashboard'))
 
-# --------------------------------------------------
-# Dashboard del Chef
-# --------------------------------------------------
+@chef_bp.before_request
+def before_request():
+    # Ahora podemos acceder a la conexión y bcrypt a través de current_app
+    from flask import current_app
+    request.connection = current_app.connection
+    request.bcrypt = current_app.bcrypt
+
 @chef_bp.route('/dashboard')
 def dashboard():
     """Vista principal del chef con pedidos pendientes"""
