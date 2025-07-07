@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Ingredientes{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Lista de Ingredientes</h2>
+
+<a href="{{ url_for('ingredientes.nuevo') }}" class="btn btn-success mb-3">+ Nuevo Ingrediente</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Unidad</th>
+            <th>Stock Actual</th>
+            <th>Stock Mínimo</th>
+            <th>Proveedor</th>
+            <th>Costo</th>
+            <th>Caducidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ing in ingredientes %}
+        <tr>
+            <td>{{ ing.nombre }}</td>
+            <td>{{ ing.unidad_medida }}</td>
+            <td>{{ ing.stock_actual }}</td>
+            <td>{{ ing.stock_minimo }}</td>
+            <td>{{ ing.proveedor_principal }}</td>
+            <td>S/ {{ ing.costo_por_unidad }}</td>
+            <td>{{ ing.dias_caducidad }}</td>
+            <td>
+                <a href="{{ url_for('ingredientes.editar', id=ing.id) }}" class="btn btn-sm btn-warning">Editar</a>
+                <form method="POST" action="{{ url_for('ingredientes.eliminar', id=ing.id) }}" style="display:inline;" onsubmit="return confirm('¿Eliminar ingrediente?');">
+                    <button class="btn btn-sm btn-danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="8" class="text-center">No hay ingredientes registrados.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

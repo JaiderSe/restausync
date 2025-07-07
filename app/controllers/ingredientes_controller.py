@@ -1,4 +1,4 @@
-from flask import Blueprint, flash, render_template, redirect, url_for, jsonify, request
+from flask import Blueprint, flash, render_template, redirect, url_for, request
 from app.models.ingrediente import obtener_ingredientes, guardar_ingrediente, obtener_ingrediente_por_id, actualizar_ingrediente, eliminar_ingrediente
 from app.extensions import mysql
 from flask import send_from_directory
@@ -12,7 +12,8 @@ def index():
 @ingredientes_controller.route('/ingredientes')
 def listar():
     datos = obtener_ingredientes(mysql)
-    return jsonify(datos)
+    return render_template('ingredientes/listar.html', ingredientes=datos)
+
 
 @ingredientes_controller.route('/favicon.ico')
 def favicon():

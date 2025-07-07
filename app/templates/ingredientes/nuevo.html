@@ -1,36 +1,31 @@
-<h2 class="mb-4">Nuevo Ingrediente</h2>
+{% extends 'base.html' %}
+
+{% block title %}Nuevo Ingrediente{% endblock %}
+
+{% block content %}
+<h2>Registrar Ingrediente</h2>
 <form method="POST" action="{{ url_for('ingredientes.guardar') }}">
-  <div class="mb-3">
-    <label class="form-label">Nombre</label>
-    <input type="text" name="nombre" class="form-control" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Unidad de medida</label>
-    <input type="text" name="unidad_medida" class="form-control">
-  </div>
-  <div class="row">
-    <div class="col">
-      <label class="form-label">Stock Actual</label>
-      <input type="number" name="stock_actual" class="form-control" min="0">
-    </div>
-    <div class="col">
-      <label class="form-label">Stock Mínimo</label>
-      <input type="number" name="stock_minimo" class="form-control" min="0">
-    </div>
-  </div>
-  <div class="mb-3 mt-3">
-    <label class="form-label">Proveedor</label>
-    <input type="text" name="proveedor_principal" class="form-control">
-  </div>
-  <div class="row">
-    <div class="col">
-      <label class="form-label">Costo por unidad</label>
-      <input type="number" step="0.01" name="costo_por_unidad" class="form-control">
-    </div>
-    <div class="col">
-      <label class="form-label">Días de caducidad</label>
-      <input type="number" name="dias_caducidad" class="form-control" min="0">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+  <label>Nombre:</label>
+  <input type="text" name="nombre"><br>
+
+  <label>Unidad de medida:</label>
+  <input type="text" name="unidad_medida"><br>
+
+  <label>Stock actual:</label>
+  <input type="number" name="stock_actual"><br>
+
+  <label>Stock mínimo:</label>
+  <input type="number" name="stock_minimo"><br>
+
+  <label>Proveedor:</label>
+  <input type="text" name="proveedor_principal"><br>
+
+  <label>Costo por unidad:</label>
+  <input type="number" step="0.01" name="costo_por_unidad"><br>
+
+  <label>Días caducidad:</label>
+  <input type="number" name="dias_caducidad"><br>
+
+  <button type="submit">Guardar</button>
 </form>
+{% endblock %}
