@@ -1,21 +1,18 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from flask import Flask
-from .routes.ingredientes_routes import ingredientes_bp
+from config import Config
+import mysql.connector
 
-db = SQLAlchemy()
-migrate = Migrate()
+db = mysql.connector
+
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'tu_clave_secreta_segura'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ingredientes.db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config.from_object(Config)
 
-    db.init_app(app)
-    migrate.init_app(app)
-
-    # Registro de Blueprints
-    app.register_blueprint(ingredientes_bp)
+    app.config['MYSQL_CONNECTION'] = mysql.connector.connect(
+    host=Config.MYSQL_HOST,
+    user=Config.MYSQL_USER, 
+    password=Config.MYSQL_PASSWORD,
+    database=Config.MYSQL_DB)
 
     return app

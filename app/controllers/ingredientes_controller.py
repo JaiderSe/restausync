@@ -1,15 +1,19 @@
-
-from flask import Blueprint, flash, render_template, request, redirect, url_for
+from flask import Blueprint, flash, render_template, redirect, url_for, request
 from app.models.ingrediente import Ingrediente
-from app import db
-
+from __init__ import db
+from flask import send_from_directory
 
 ingredientes_bp = Blueprint('ingredientes', __name__)
+auth_bp = Blueprint('auth', __name__)
 
-@ingredientes_bp.route('/')
+@auth_bp.route('/')
 def home():
-    return redirect(url_for('ingredientes.index'))
+    return "Welcome"
 
+
+@ingredientes_bp.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico')
 
 @ingredientes_bp.route('/ingredientes')        
 def index():

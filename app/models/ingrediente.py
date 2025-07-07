@@ -1,4 +1,4 @@
-from .. import db
+from __init__ import db
 
 
 class Ingrediente(db.Model):
