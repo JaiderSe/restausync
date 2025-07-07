@@ -1,9 +1,3 @@
-def obtener_ingredientes(mysql):
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM ingredientes")
-    resultados = cur.fetchall()
-    cur.close()
-    return resultados
 
 def guardar_ingrediente(mysql, form):
     cur = mysql.connection.cursor()
@@ -24,7 +18,7 @@ def guardar_ingrediente(mysql, form):
 
 def obtener_ingrediente_por_id(mysql, id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM ingredientes WHERE id = %s", (id,))
+    cur.execute("SELECT * FROM ingredientes WHERE ingrediente_id = %s", (id,))
     ing = cur.fetchone()
     cur.close()
     return ing
@@ -34,7 +28,7 @@ def actualizar_ingrediente(mysql, id, form):
     cur.execute("""
         UPDATE ingredientes
         SET nombre=%s, unidad_medida=%s, stock_actual=%s, stock_minimo=%s, proveedor_principal=%s, costo_por_unidad=%s, dias_caducidad=%s
-        WHERE id=%s
+        WHERE ingrediente_id=%s
     """, (
         form['nombre'],
         form['unidad_medida'],
@@ -50,6 +44,16 @@ def actualizar_ingrediente(mysql, id, form):
 
 def eliminar_ingrediente(mysql, id):
     cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM ingredientes WHERE id = %s", (id,))
+    cur.execute("DELETE FROM ingredientes WHERE ingrediente_id = %s", (id,))
     mysql.connection.commit()
     cur.close()
+
+
+
+def obtener_ingredientes(mysql):
+    
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM ingredientes")
+    datos = cur.fetchall()
+    cur.close()
+    return datos

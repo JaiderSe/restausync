@@ -1,7 +1,7 @@
 from flask import Flask
 from config import Config
-from app.extensions import mysql
-from app.routes import register_routes
+from .extensions import mysql
+from .routes import register_routes
 
 def create_app():
     app = Flask(__name__)
