@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos - Inventario Restaurante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/estilos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Inventario Restaurante</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="list.html">Ingredientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="movimientos.html">Movimientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="form.html">Agregar</a>
+                    </li>
+                </ul>
+                <span class="navbar-text text-white">
+                    Bienvenido, Chef
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 style="color: var(--primary);">Registro de Movimientos</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMovimientoModal">
+                Nuevo Movimiento
+            </button>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                Filtros
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="fechaInicio" class="form-label">Fecha Inicio</label>
+                        <input type="date" class="form-control" id="fechaInicio">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fechaFin" class="form-label">Fecha Fin</label>
+                        <input type="date" class="form-control" id="fechaFin">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tipoMovimiento" class="form-label">Tipo de Movimiento</label>
+                        <select id="tipoMovimiento" class="form-select">
+                            <option selected>Todos</option>
+                            <option>Entrada</option>
+                            <option>Salida</option>
+                            <option>Ajuste</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button class="btn btn-primary w-100">Aplicar Filtros</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="bg-primary-dark text-white">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Ingrediente</th>
+                        <th>Tipo</th>
+                        <th>Cantidad</th>
+                        <th>Responsable</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>06/04/2025</td>
+                        <td>Chile Flakes</td>
+                        <td><span class="badge bg-success">Entrada</span></td>
+                        <td>+500 g</td>
+                        <td>Chef Juan</td>
+                        <td>Reabastecimiento semanal</td>
+                    </tr>
+                    <tr>
+                        <td>05/04/2025</td>
+                        <td>Pimiento Rojo</td>
+                        <td><span class="badge bg-danger">Salida</span></td>
+                        <td>-3 kg</td>
+                        <td>Chef María</td>
+                        <td>Preparación especial del día</td>
+                    </tr>
+                    <tr>
+                        <td>04/04/2025</td>
+                        <td>Aceite de Oliva</td>
+                        <td><span class="badge bg-secondary">Ajuste</span></td>
+                        <td>-0.5 L</td>
+                        <td>Admin</td>
+                        <td>Corrección de inventario</td>
+                    </tr>
+                    <tr>
+                        <td>03/04/2025</td>
+                        <td>Pechuga de Pollo</td>
+                        <td><span class="badge bg-success">Entrada</span></td>
+                        <td>+20 kg</td>
+                        <td>Chef Pedro</td>
+                        <td>Pedido semanal</td>
+                    </tr>
+                    <tr>
+                        <td>02/04/2025</td>
+                        <td>Queso Parmesano</td>
+                        <td><span class="badge bg-danger">Salida</span></td>
+                        <td>-1.5 kg</td>
+                        <td>Chef Ana</td>
+                        <td>Preparación pastas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Modal Nuevo Movimiento -->
+    <div class="modal fade" id="nuevoMovimientoModal" tabindex="-1" aria-labelledby="nuevoMovimientoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="nuevoMovimientoModalLabel">Registrar Nuevo Movimiento</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="movimientoIngrediente" class="form-label">Ingrediente</label>
+                            <select class="form-select" id="movimientoIngrediente" required>
+                                <option value="" selected disabled>Seleccione un ingrediente</option>
+                                <option>Pimiento Rojo</option>
+                                <option>Chile Flakes</option>
+                                <option>Pechuga de Pollo</option>
+                                <option>Aceite de Oliva</option>
+                                <option>Queso Parmesano</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="movimientoTipo" class="form-label">Tipo de Movimiento</label>
+                                <select class="form-select" id="movimientoTipo" required>
+                                    <option value="" selected disabled>Seleccione tipo</option>
+                                    <option value="entrada">Entrada</option>
+                                    <option value="salida">Salida</option>
+                                    <option value="ajuste">Ajuste</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="movimientoCantidad" class="form-label">Cantidad</label>
+                                <div class="input-group">
+                                    <input type="number" step="0.01" class="form-control" id="movimientoCantidad" required>
+                                    <span class="input-group-text" id="unidadMovimiento">kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="movimientoFecha" class="form-label">Fecha</label>
+                            <input type="datetime-local" class="form-control" id="movimientoFecha" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="movimientoNotas" class="form-label">Notas</label>
+                            <textarea class="form-control" id="movimientoNotas" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar Movimiento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5 py-3 bg-primary-dark text-white">
+        <div class="container text-center">
+            <p class="mb-0">Sistema de Inventario del Restaurante © 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ejemplo de script para actualizar la unidad de medida cuando se selecciona un ingrediente
+        document.getElementById('movimientoIngrediente').addEventListener('change', function() {
+            // En una implementación real, esto buscaría la unidad del ingrediente seleccionado
+            const unidadMap = {
+                'Pimiento Rojo': 'kg',
+                'Chile Flakes': 'g',
+                'Pechuga de Pollo': 'kg',
+                'Aceite de Oliva': 'L',
+                'Queso Parmesano': 'kg'
+            };
+            const selected = this.value;
+            document.getElementById('unidadMovimiento').textContent = unidadMap[selected] || 'unidad';
+        });
+    </script>
+</body>
+</html>

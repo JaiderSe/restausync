@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inventario Restaurante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/estilos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Inventario Restaurante</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="dash.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="list.html">Ingredientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="movimientos.html">Movimientos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="form.html">Agregar</a>
+                    </li>
+                </ul>
+                <span class="navbar-text text-white">
+                    Bienvenido, Chef
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="mb-4" style="color: var(--primary);">Dashboard de Inventario</h2>
+        
+        <div class="row">
+            <!-- Tarjeta 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card bg-primary-light h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Ingredientes Bajos</h5>
+                        <p class="display-4">8</p>
+                        <a href="list.html?filter=low" class="btn btn-primary">Ver Lista</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card bg-secondary h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Ingredientes</h5>
+                        <p class="display-4">42</p>
+                        <a href="list.html" class="btn btn-primary">Ver Todos</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card bg-primary-dark text-white h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Movimientos Hoy</h5>
+                        <p class="display-4">15</p>
+                        <a href="movimientos.html" class="btn btn-light">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Ingredientes que necesitan reorden
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Ingrediente</th>
+                                    <th>Cantidad</th>
+                                    <th>Umbral</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pimiento Rojo</td>
+                                    <td class="text-accent">2 kg</td>
+                                    <td>5 kg</td>
+                                    <td><button class="btn btn-sm btn-primary">Reordenar</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Chile Flakes</td>
+                                    <td class="text-accent">100 g</td>
+                                    <td>300 g</td>
+                                    <td><button class="btn btn-sm btn-primary">Reordenar</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Aceite de Oliva</td>
+                                    <td class="text-accent">0.5 L</td>
+                                    <td>2 L</td>
+                                    <td><button class="btn btn-sm btn-primary">Reordenar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Acciones Rápidas
+                    </div>
+                    <div class="card-body">
+                        <a href="form.html" class="btn btn-primary w-100 mb-3">Agregar Ingrediente</a>
+                        <a href="movimientos.html" class="btn btn-outline-primary w-100 mb-3">Registrar Movimiento</a>
+                        <a href="list.html" class="btn btn-outline-primary w-100 mb-3">Ver Inventario Completo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5 py-3 bg-primary-dark text-white">
+        <div class="container text-center">
+            <p class="mb-0">Sistema de Inventario del Restaurante © 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
