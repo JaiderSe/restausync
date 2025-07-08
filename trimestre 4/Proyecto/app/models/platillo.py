@@ -155,3 +155,18 @@ class Platillo:
         except pymysql.Error as e:
             print(f"Error al buscar platillos: {e}")
             return []
+        
+    def get_activos(self):
+        """Obtiene todos los platillos activos"""
+        try:
+            with self.connection.cursor() as cursor:
+                sql = """
+                SELECT * FROM platillos 
+                WHERE activo = TRUE
+                ORDER BY nombre
+                """
+                cursor.execute(sql)
+                return cursor.fetchall()
+        except pymysql.Error as e:
+            print(f"Error al obtener platillos activos: {e}")
+            return []

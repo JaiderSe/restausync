@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, session, jsonify
 from app.models.mesa import Mesa
 
-mesas_bp = Blueprint('mesas', __name__)
+mesas_bp = Blueprint('mesa', __name__)
 
 @mesas_bp.before_request
 def before_request():

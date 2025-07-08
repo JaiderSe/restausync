@@ -32,7 +32,7 @@ class User:
         
     def get_all(self):
         with self.connection.cursor() as cursor:
-            sql = "SELECT * FROM usuarios ORDER BY fecha_registro DESC"
+            sql = "SELECT * FROM usuarios ORDER BY usuario_id ASC"
             cursor.execute(sql)
             return cursor.fetchall()
     

@@ -32,9 +32,7 @@ def dashboard():
         flash(f'Error al cargar el dashboard: {str(e)}', 'danger')
         return redirect(url_for('main.dashboard'))
 
-# --------------------------------------------------
-# Gestión de Ingredientes
-# --------------------------------------------------
+
 @inventario_bp.route('/ingredientes')
 def listar_ingredientes():
     """Lista todos los ingredientes"""

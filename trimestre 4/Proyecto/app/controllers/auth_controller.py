@@ -12,7 +12,7 @@ def before_request():
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
+    if request.method == 'POST':    
         email = request.form['email']
         password = request.form['password']
         user_model = User(request.connection)

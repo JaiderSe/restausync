@@ -32,7 +32,7 @@ class Ingrediente:
         """Obtiene todos los ingredientes"""
         try:
             with self.connection.cursor() as cursor:
-                sql = "SELECT * FROM ingredientes ORDER BY nombre"
+                sql = "SELECT * FROM ingredientes ORDER BY ingrediente_id ASC"
                 cursor.execute(sql)
                 return cursor.fetchall()
         except pymysql.Error as e:

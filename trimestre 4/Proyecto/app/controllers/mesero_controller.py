@@ -5,7 +5,7 @@ from app.models.platillo import Platillo
 from app.models.cliente import Cliente
 from datetime import datetime
 
-mesero_bp = Blueprint('mesero', __name__)
+mesero_bp = Blueprint('mesero', __name__, url_prefix='/mesero')
 
 @mesero_bp.before_request
 def check_mesero():
@@ -13,6 +13,7 @@ def check_mesero():
     if session.get('user_role') != 'mesero':
         flash('Acceso restringido a meseros', 'danger')
         return redirect(url_for('main.dashboard'))
+@mesero_bp.before_request
 def before_request():
     # Ahora podemos acceder a la conexión y bcrypt a través de current_app
     from flask import current_app

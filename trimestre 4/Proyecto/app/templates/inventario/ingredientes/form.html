@@ -18,7 +18,7 @@
         </div>
         <div class="card-body">
             <form method="POST" 
-                  action="{{ url_for('inventario.registrar_ingrediente') if accion == 'Crear' else url_for('inventario.editar_ingrediente', ingrediente_id=ingrediente.ingrediente_id) }}">
+                  action="{{ url_for('inventario.registrar_entrada') if accion == 'Crear' else url_for('inventario.editar_ingrediente', ingrediente_id=ingrediente.ingrediente_id) }}">
                 
                 <div class="row mb-3">
                     <div class="col-md-6">
