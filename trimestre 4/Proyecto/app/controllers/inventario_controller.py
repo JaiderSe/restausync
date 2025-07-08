@@ -67,9 +67,6 @@ def ver_ingrediente(ingrediente_id):
         flash(f'Error al obtener ingrediente: {str(e)}', 'danger')
         return redirect(url_for('inventario.listar_ingredientes'))
 
-# --------------------------------------------------
-# Movimientos de Inventario
-# --------------------------------------------------
 @inventario_bp.route('/movimientos/entrada', methods=['GET', 'POST'])
 def registrar_entrada():
     """Registra una entrada de inventario"""
