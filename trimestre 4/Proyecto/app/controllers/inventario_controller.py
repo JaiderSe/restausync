@@ -48,7 +48,7 @@ def listar_ingredientes():
 
 @inventario_bp.route('/ingredientes/<int:ingrediente_id>')
 def ver_ingrediente(ingrediente_id):
-    """Muestra los detalles de un ingrediente"""
+    """Muestra los detalles de un ingrediente"""    
     try:
         ingrediente_model = Ingrediente(request.connection)
         inventario_model = Inventario(request.connection)
@@ -204,3 +204,56 @@ def reporte_mensual():
     except Exception as e:
         flash(f'Error al generar reporte: {str(e)}', 'danger')
         return redirect(url_for('inventario.dashboard'))
+    
+@inventario_bp.route('/ingredientes/nuevo', methods=['GET', 'POST'])
+def editar_ingrediente(ingrediente_id):
+    """Edita un ingrediente existente"""
+    try:
+        ingrediente_model = Ingrediente(request.connection)
+        
+        if request.method == 'POST':
+            nombre = request.form['nombre']
+            descripcion = request.form['descripcion']
+            stock_minimo = float(request.form['stock_minimo'])
+            stock_maximo = float(request.form['stock_maximo'])
+            
+            if ingrediente_model.update_ingrediente(ingrediente_id, nombre, descripcion, stock_minimo, stock_maximo):
+                flash('Ingrediente actualizado correctamente', 'success')
+                return redirect(url_for('inventario.ver_ingrediente', ingrediente_id=ingrediente_id))
+            else:
+                flash('Error al actualizar ingrediente', 'danger')
+        
+        ingrediente = ingrediente_model.get_by_id(ingrediente_id)
+        if not ingrediente:
+            flash('Ingrediente no encontrado', 'danger')
+            return redirect(url_for('inventario.listar_ingredientes'))
+        
+        return render_template('inventario/ingredientes/editar.html', 
+                            ingrediente=ingrediente)
+    
+    except Exception as e:
+        flash(f'Error al editar ingrediente: {str(e)}', 'danger')
+        return redirect(url_for('inventario.listar_ingredientes'))
+    
+def crear_ingrediente():
+    """Crea un nuevo ingrediente"""
+    try:
+        ingrediente_model = Ingrediente(request.connection)
+        
+        if request.method == 'POST':
+            nombre = request.form['nombre']
+            descripcion = request.form['descripcion']
+            stock_minimo = float(request.form['stock_minimo'])
+            stock_maximo = float(request.form['stock_maximo'])
+            
+            if ingrediente_model.create_ingrediente(nombre, descripcion, stock_minimo, stock_maximo):
+                flash('Ingrediente creado correctamente', 'success')
+                return redirect(url_for('inventario.listar_ingredientes'))
+            else:
+                flash('Error al crear ingrediente', 'danger')
+        
+        return render_template('inventario/ingredientes/nuevo.html')
+    
+    except Exception as e:
+        flash(f'Error al crear ingrediente: {str(e)}', 'danger')
+        return redirect(url_for('inventario.listar_ingredientes'))
