@@ -18,41 +18,85 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 ## 📁 Estructura del Proyecto
 
  ```text
-  /Restausync/
+app/
 │
-├── app.py                  # Punto de entrada principal de la aplicación
-├── config.py               # Configuraciones (base de datos, secretos)
-├── requirements.txt        # Dependencias de Python
+├── __init__.py
+├── config.py
 │
+├── models/
+│   ├── __init__.py
+│   ├── user.py
+│   ├── categoria.py
+│   ├── ingrediente.py
+│   ├── platillo.py
+│   ├── mesa.py
+│   ├── cliente.py
+│   ├── pedido.py
+│   ├── detalle_pedido.py
+│   └── inventario.py
 │
-└── app/                    # Lógica de la aplicación (MVC)
-    ├── __init__.py         # Factory de la aplicación
-    │
-    ├── models/             # Modelos (MySQL)
-    │   ├── user.py
-    │   ├── dish.py
-    │   ├── ingredient.py
-    │   ├── order.py
-    │   └── __init__.py
-    │
-    ├── controllers/        # Controladores
-    │   ├── auth_controller.py
-    │   ├── menu_controller.py
-    │   ├── order_controller.py
-    │   ├── inventory_controller.py
-    │   └── __init__.py
-    │
-    ├── services/           # Lógica de negocio
-    │   ├── auth_service.py
-    │   ├── menu_service.py
-    │   └── order_service.py
-    │
-    ├── utils/              # Utilidades
-    │   ├── decorators.py
-    │   ├── db.py           # Conexión a MySQL
-    │   └── helpers.py
-    │
-    └── templates/          # Sobreescribe plantillas específicas si es necesario
+├── controllers/
+│   ├── __init__.py
+│   ├── auth_controller.py
+│   ├── admin_controller.py
+│   ├── chef_controller.py
+│   ├── mesero_controller.py
+│   ├── inventario_controller.py
+│   ├── menu_controller.py
+│   ├── pedidos_controller.py
+│   └── mesas_controller.py
+│
+├── templates/
+│   ├── base.html
+│   │
+│   ├── auth/
+│   │   ├── login.html
+│   │   └── register.html
+│   │
+│   ├── admin/
+│   │   ├── dashboard.html
+│   │   ├── usuarios/
+│   │   │   ├── list.html
+│   │   │   └── form.html
+│   │   └── reportes/
+│   │       └── ventas.html
+│   │
+│   ├── chef/
+│   │   ├── dashboard.html
+│   │   ├── ordenes.html
+│   │   └── recetas/
+│   │       ├── list.html
+│   │       └── form.html
+│   │
+│   ├── mesero/
+│   │   ├── dashboard.html
+│   │   ├── mesas/
+│   │   │   ├── list.html
+│   │   │   └── detalles.html
+│   │   └── pedidos/
+│   │       ├── nuevo.html
+│   │       └── list.html
+│   │
+│   ├── inventario/
+│   │   ├── dashboard.html
+│   │   ├── ingredientes/
+│   │   │   ├── list.html
+│   │   │   └── form.html
+│   │   └── movimientos.html
+│   │
+│   └── shared/
+│       ├── menu.html
+│       └── platillos/
+│           ├── card.html
+│           └── detalles.html
+│
+└── static/
+    ├── css/
+    │   └── styles.css
+    ├── js/
+    │   └── scripts.js
+    └── img/
+        └── logo.png
    ```
 **🖥 Página Web:** 
 [Link](https://drive.google.com/drive/folders/1sXHN52Wap0UovdsT4diPcBXqt-dIDT79?usp=sharing)

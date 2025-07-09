@@ -83,7 +83,7 @@
                         <td>{{ pedido.fecha_hora|datetimeformat }}</td>
                         <td>
                             <a href="{{ url_for('pedidos.detalle_pedido', pedido_id=pedido.pedido_id) }}" class="btn btn-sm btn-primary">Ver</a>
-                        </td>
+                        </td>   
                     </tr>
                     {% endfor %}
                 </tbody>
