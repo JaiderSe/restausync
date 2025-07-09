@@ -1,5 +1,5 @@
 USE Restausync;
-
+ 
 -- Usuarios
 INSERT INTO usuarios (nombre, email, contraseña_hash, rol) VALUES
 ('Ana Pérez', 'ana@restausync.com', 'hash1', 'administrador'),
