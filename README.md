@@ -7,7 +7,7 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 
 "Bienvenido a RestauSync, donde la tradición y la innovación se unen en un viaje gastronómico único. Disfruta de nuestra especialidad, la Arepa RestauSync de la Casa, y explora nuestra variedad de platos colombianos incluyendo la famosa Bandeja Paisa. ¡Ven y descubre el sabor de la autenticidad en un ambiente acogedor y elegante!"
 
-## 🛠️ Tecnologías
+## 🛠️ Tecnologías  
 
 - **C++**: Lenguaje de programación principal utilizado para desarrollar la lógica de la aplicación.
 - **PHP**: Lenguaje utilizado para el diseño de la página.
