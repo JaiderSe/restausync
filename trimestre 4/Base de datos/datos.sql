@@ -6,6 +6,18 @@ INSERT INTO categorias (nombre, descripcion, orden_menu) VALUES
 ('Platos Fuertes', 'Platos principales del menú', 2),
 ('Postres', 'Deliciosos postres caseros', 3),
 ('Bebidas', 'Refrescos, jugos y bebidas alcohólicas', 4);
+USE Restausync;
+ 
+-- Usuarios
+INSERT INTO usuarios (nombre, email, contraseña_hash, rol) VALUES
+('Ana Pérez', 'ana@restausync.com', 'hash1', 'administrador'),
+('Luis Gómez', 'luis@restausync.com', 'hash2', 'chef'),
+('Sofía Ramírez', 'sofia@restausync.com', 'hash3', 'mesero'),
+('Carlos Méndez', 'carlos@restausync.com', 'hash4', 'inventario'),
+('María López', 'maria@restausync.com', 'hash5', 'mesero'),
+('Juan Torres', 'juan@restausync.com', 'hash6', 'chef'),
+('Laura Niño', 'laura@restausync.com', 'hash7', 'inventario'),
+('Pedro Rojas', 'pedro@restausync.com', 'hash8', 'administrador');
 
 -- Insertar ingredientes
 INSERT INTO ingredientes (nombre, unidad_medida, stock_actual, stock_minimo) VALUES
