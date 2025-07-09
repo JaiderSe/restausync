@@ -15,7 +15,7 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 
 
 
-## 📁 Estructura del Proyecto 
+## 📁 Estructura del Proyecto
 
  ```text
   /Restausync/
