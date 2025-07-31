@@ -130,6 +130,48 @@ https://drive.google.com/file/d/1RRVvbDGRa0bgOkOfDM5DY045C1C7dRuq/view?usp=shari
 
 ## Compilar el Código
 
+Para ejecutar la página web que utiliza HTML, MySQL y Flask:
+
+1. **Clona el repositorio** :
+
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    cd <NOMBRE_DEL_PROYECTO>
+    ```
+
+2. **Instala las dependencias de Python** tener `pip` y un entorno virtual:
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+3. **Configura la base de datos MySQL**:
+
+    - Asegúrate de tener MySQL instalado y en ejecución.
+    - Crea una base de datos y un usuario para la aplicación.
+    - Actualiza las credenciales de conexión en el archivo de configuración (`config.py` o `.env`).
+
+4. **Inicializa la base de datos** (si es necesario):
+
+    ```bash
+    # Ejecuta el script de migración o inicialización según la estructura del proyecto
+    python scripts/init_db.py
+    ```
+
+5. **Ejecuta la aplicación Flask**:
+
+    ```bash
+    flask run
+    ```
+
+6. **Abre la aplicación en tu navegador**:
+
+    Normalmente estará disponible en [http://localhost:5000](http://localhost:5000).
+
+> **Nota:** Si usas XAMPP para gestionar MySQL, asegúrate de que el servicio de MySQL esté iniciado antes de correr la aplicación.
+
 
 
 ## 🖥️ Ejecutar la Aplicación
