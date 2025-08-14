@@ -130,7 +130,7 @@ https://drive.google.com/file/d/1RRVvbDGRa0bgOkOfDM5DY045C1C7dRuq/view?usp=shari
 
 
 
-## Compilar el Código
+## 🖥️ Ejecutar la Aplicación
 
 Para ejecutar la página web que utiliza HTML, MySQL y Flask:
 
@@ -176,7 +176,7 @@ Para ejecutar la página web que utiliza HTML, MySQL y Flask:
 
 
 
-## 🖥️ Ejecutar la Aplicación
+
 
 ## 👥 Participantes
 
