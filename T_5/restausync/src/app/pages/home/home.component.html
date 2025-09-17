@@ -1,0 +1,81 @@
+<!-- Hero con slider (ya funcionando) -->
+<section class="relative h-[80vh] w-full overflow-hidden">
+  <div class="absolute inset-0">
+    <div *ngFor="let slide of slides; let i = index"
+     [ngClass]="{
+       'opacity-100 animate-fade-zoom': i === currentIndex,
+       'opacity-0': i !== currentIndex
+     }"
+     class="absolute inset-0 transition-opacity duration-1000 ease-in-out">
+  <img [src]="slide.image" [alt]="slide.title" class="w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+    <h1 class="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
+      {{ slide.title }}
+    </h1>
+  </div>
+</div>
+  </div>
+
+  <!-- Controles -->
+  <button (click)="prevSlide()"
+          class="absolute left-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full">
+    ‹
+  </button>
+  <button (click)="nextSlide()"
+          class="absolute right-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full">
+    ›
+  </button>
+</section>
+
+<!-- Sección de platos destacados -->
+<section class="py-20 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-12">Platos Destacados</h2>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="bg-white shadow-lg rounded-xl p-6 hover:scale-105 transform transition">
+        <img src="assets/slide_1.jpg" alt="Plato 1" class="rounded-md mb-4">
+        <h3 class="text-xl font-semibold">Plato Especial 1</h3>
+        <p class="text-gray-600 mt-2">Una experiencia única para tu paladar.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-xl p-6 hover:scale-105 transform transition">
+        <img src="assets/slide_2.jpg" alt="Plato 2" class="rounded-md mb-4">
+        <h3 class="text-xl font-semibold">Plato Especial 2</h3>
+        <p class="text-gray-600 mt-2">Sabores modernos con un toque artesanal.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-xl p-6 hover:scale-105 transform transition">
+        <img src="assets/slide_3.jpg" alt="Plato 3" class="rounded-md mb-4">
+        <h3 class="text-xl font-semibold">Plato Especial 3</h3>
+        <p class="text-gray-600 mt-2">El favorito de nuestros clientes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección intermedia con imagen + texto -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <img src="assets/slide_2.jpg" alt="Experiencia" class="rounded-xl shadow-lg">
+    <div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">La experiencia RestauSync</h2>
+      <p class="text-gray-600 mb-6">
+        Más que un restaurante, una experiencia culinaria única. Combinamos
+        la tradición con la innovación, para ofrecerte momentos inolvidables.
+      </p>
+      <a routerLink="/about"
+         class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full text-lg font-medium transition">
+        Conócenos más
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="py-20 bg-red-500 text-white text-center">
+  <h2 class="text-4xl font-bold mb-4">¿Listo para optimizar tu restaurante?</h2>
+  <p class="mb-6 text-lg">Descubre cómo RestauSync puede ayudarte hoy mismo.</p>
+  <a routerLink="/contact"
+     class="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-medium transition">
+    Contáctanos
+  </a>
+</section>
