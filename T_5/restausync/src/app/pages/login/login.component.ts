@@ -1,12 +1,15 @@
-// pages/home/home.component.ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
+
 @Component({
-  selector: 'app-features',
+  selector: 'app-home',
   standalone: true,
   imports: [CommonModule], // 👈 aquí importa CommonModule
-  templateUrl: './features.component.html',
-  styleUrls: ['./features.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class FeaturesComponent {}
+
+export class LoginComponent{
+
+} 

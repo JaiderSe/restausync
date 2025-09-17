@@ -20,6 +20,10 @@ node -v
 npm -v
 ng version
 ```
+📌 Instalar Angular (si no lo está):
+```
+instalar Angular (si no lo está): npm install -g @angular/cli
+```
 
 ---
 
@@ -28,7 +32,7 @@ ng version
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/<TU-USUARIO>/restausync.git
+git clone https://github.com/JaiderSe/restausync.git
 ```
 
 2. Entra en la carpeta del proyecto:
