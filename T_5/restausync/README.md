@@ -1,59 +1,112 @@
-# Restausync
+# 🍽️ Restausync - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.0.
+Proyecto frontend hecho en **Angular 17** con **TailwindCSS**.  
+Actualmente incluye un **Home con slider animado** y vistas listas para futuras secciones (About, Menu, Contact).
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Requisitos previos
+
+Antes de clonar y correr este proyecto asegúrate de tener instalado:
+
+- [Node.js](https://nodejs.org/) (v18 o superior recomendado)  
+- [Angular CLI](https://angular.io/cli)  
+- Git  
+
+📌 Verifica las versiones instaladas:
+
+```bash
+node -v
+npm -v
+ng version
+```
+
+---
+
+## 📥 Instalación
+
+1. Clona este repositorio:
+
+```bash
+git clone https://github.com/<TU-USUARIO>/restausync.git
+```
+
+2. Entra en la carpeta del proyecto:
+
+```bash
+cd restausync
+```
+
+3. Instala las dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## 🎨 TailwindCSS
+
+Este proyecto ya está configurado con Tailwind.  
+Los estilos globales se encuentran en:
+
+- `tailwind.config.js`  
+- `src/styles.css`  
+
+Para más info sobre utilidades visita: [Tailwind Docs](https://tailwindcss.com/docs/utility-first).
+
+---
+
+## ▶️ Iniciar en desarrollo
+
+Levanta el servidor con:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre en tu navegador:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+El servidor se refrescará automáticamente al hacer cambios en el código.
+
+---
+
+## 🏗️ Compilar para producción
 
 ```bash
-ng generate --help
+ng build --configuration production
 ```
 
-## Building
+Los archivos listos se generarán en la carpeta `dist/`.
 
-To build the project run:
+---
 
-```bash
-ng build
+## 🛠️ Estructura del proyecto
+
+```
+src/
+ ├── app/                # Componentes principales
+ │    ├── home/          # Home con slider animado
+ │    ├── navbar/        # Barra de navegación
+ │    └── footer/        # Pie de página
+ ├── assets/             # Imágenes y recursos
+ ├── styles.css          # Estilos globales con Tailwind
+ └── main.ts             # Punto de arranque Angular
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🌱 Ramas
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- `main`: rama estable con el código listo para deploy.  
+- `juan`: rama de desarrollo personal.  
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 📜 Licencia
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto es de uso educativo y libre de modificación.
