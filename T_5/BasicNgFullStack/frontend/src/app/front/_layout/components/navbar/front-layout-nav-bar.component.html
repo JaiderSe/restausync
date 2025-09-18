@@ -1,0 +1,78 @@
+<div class="navbar bg-primary text-primary-content px-8 shadow-md">
+  <!-- INICIO (lado izquierdo) -->
+  <div class="navbar-start">
+    <!-- Dropdown para móviles -->
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+      >
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/menu">Menú</a></li>
+        <li><a routerLink="/reservas">Reservas</a></li>
+        <li><a routerLink="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <!-- Nombre de la app -->
+    <a class="btn btn-ghost normal-case text-xl" routerLink="/">
+      {{ appName() }}
+    </a>
+  </div>
+
+  <!-- CENTRO (links para pantallas grandes) -->
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/menu">Menú</a></li>
+      <li><a routerLink="/reservas">Reservas</a></li>
+      <li><a routerLink="/contacto">Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- DERECHA (estado de sesión) -->
+  <div class="navbar-end gap-3">
+    @if (authStatus() === 'authenticated') {
+      <a
+        class="px-4 py-2 bg-blue-200 text-blue-900 font-medium rounded-lg hover:bg-blue-300 transition-colors"
+        routerLink="/private"
+      >
+        {{ userName() }}
+      </a>
+      <button
+        class="px-4 py-2 bg-blue-200 text-blue-900 font-medium rounded-lg hover:bg-blue-300 transition-colors"
+        (click)="logout()"
+      >
+        Salir De la Cuenta
+      </button>
+    } @else if (authStatus() === 'not-authenticated') {
+      <a
+        class="px-4 py-2 bg-blue-200 text-blue-900 font-medium rounded-lg hover:bg-blue-300 transition-colors"
+        routerLink="/auth/login"
+      >
+        Iniciar
+      </a>
+    } @else {
+      <button
+        class="px-4 py-2 bg-blue-50 text-blue-900 font-medium rounded-lg border border-blue-200 hover:bg-blue-100 transition-colors"
+      >
+        . . .
+      </button>
+    }
+  </div>
+</div>

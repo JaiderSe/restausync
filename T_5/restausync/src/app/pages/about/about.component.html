@@ -1,0 +1,72 @@
+
+<div class="px-4 w-full">
+    <div class="flex justify-between items-center mt-4">
+        <h1 class="text-2xl font-bold">Dashboard Administrativo</h1>
+        <a href="" class="btn btn-outline-primary px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50 transition">
+            Gestión de Usuarios
+        </a>
+    </div>
+
+    <ol class="flex mb-4 space-x-2 text-gray-500">
+        <li class="font-semibold">Resumen del sistema</li>
+    </ol>
+    
+    <!-- Estadísticas Rápidas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div class="bg-blue-600 text-white rounded shadow p-4">
+            <h5 class="text-lg font-semibold">Total Usuarios</h5>
+            <h2 class="text-3xl font-bold">usuarios totales</h2>
+        </div>
+        <div class="bg-green-600 text-white rounded shadow p-4">
+            <h5 class="text-lg font-semibold">Pedidos Hoy</h5>
+            <h2 class="text-3xl font-bold">pedidos_hoy </h2>
+        </div>
+        <div class="bg-cyan-600 text-white rounded shadow p-4">
+            <h5 class="text-lg font-semibold">Ingresos Hoy</h5>
+            <h2 class="text-3xl font-bold"></h2>
+        </div>
+        <div class="bg-yellow-500 text-white rounded shadow p-4">
+            <h5 class="text-lg font-semibold">Mesas Ocupadas</h5>
+            <h2 class="text-3xl font-bold">mesas_ocupadas</h2>
+        </div>
+    </div>
+    
+    <!-- Últimos Pedidos -->
+    <div class="bg-white rounded shadow mt-6 mb-4">
+        <div class="border-b px-4 py-3 flex items-center space-x-2">
+            <i class="fas fa-table"></i>
+            <span class="font-semibold">Últimos Pedidos</span>
+        </div>
+        <div class="p-4 overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead>
+                    <tr class="bg-gray-50">
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Mesa</th>
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Estado</th>
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Fecha</th>
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr *ngFor="let pedido of ultimosPedidos">
+                        <td class="px-4 py-2">{{ pedido.pedido_id }}</td>
+                        <td class="px-4 py-2">{{ pedido.numero_mesa }}</td>
+                        <td class="px-4 py-2">${{ pedido.total.toFixed(2) }}</td>
+                        <td class="px-4 py-2">
+                            <span class="px-2 py-1 rounded text-xs font-semibold"
+                                [ngClass]="pedido.estado === 'pagado' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'">
+                                {{ pedido.estado | titlecase }}
+                            </span>
+                        </td>
+                        <td class="px-4 py-2">{{ pedido.fecha_hora | date:'short' }}</td>
+                        <td class="px-4 py-2">
+                            <a [routerLink]="['/pedidos/detalle', pedido.pedido_id]" class="px-3 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition">Ver</a>
+                        </td>   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

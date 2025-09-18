@@ -1,0 +1,18 @@
+# Manejo de finales de línea
+* text=auto
+
+# Fuerza archivos de script a LF
+*.sh text eol=lf
+*.ts text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+
+# Imágenes y binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

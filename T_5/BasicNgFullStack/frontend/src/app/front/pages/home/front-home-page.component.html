@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restausync - Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        plugins: [daisyui],
+        daisyui: {
+          themes: ['light', 'dark'],
+        },
+      };
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.50.0/dist/full.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-base-100 text-base-content">
+    <!-- Hero -->
+    <section class="hero min-h-screen bg-base-200">
+      <div class="hero-content flex-col lg:flex-row">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-bold">Bienvenido a Restausync</h1>
+          <p class="py-6 text-lg">
+            Tu restaurante favorito ahora más fácil de reservar y explorar el
+            menú. ¡Descubre nuestros platos y reserva tu mesa online!
+          </p>
+
+          <!-- Botones de Login/Register -->
+          <div class="flex flex-col gap-2 w-full max-w-xs mx-auto lg:mx-0">
+            <a routerLink="/auth/login" class="btn btn-primary w-full"
+              >Iniciar Sesión</a
+            >
+            <a routerLink="/auth/register" class="btn btn-outline w-full"
+              >Registrarse</a
+            >
+          </div>
+        </div>
+        <div class="lg:w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80"
+            class="rounded-lg shadow-2xl"
+            alt="Plato delicioso"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Cards -->
+    <section id="menu" class="py-16 px-8 bg-base-100">
+      <h2 class="text-4xl font-bold text-center mb-12">Nuestros Platillos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card bg-base-200 shadow-xl">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&q=80"
+              alt="Pizza"
+            />
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">Pizza Gourmet</h3>
+            <p>
+              Deliciosa pizza artesanal con ingredientes frescos y una masa
+              crujiente.
+            </p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary btn-sm">Ordenar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-200 shadow-xl">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80"
+              alt="Burger"
+            />
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">Burger Especial</h3>
+            <p>
+              Jugosa hamburguesa gourmet con ingredientes frescos y salsas
+              exclusivas.
+            </p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary btn-sm">Ordenar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-200 shadow-xl">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80"
+              alt="Postre"
+            />
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">Postre del Chef</h3>
+            <p>
+              Exquisitos postres preparados diariamente con ingredientes frescos
+              y naturales.
+            </p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary btn-sm">Ordenar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-primary text-primary-content py-16 text-center">
+      <h2 class="text-3xl font-bold mb-4">Reserva tu mesa ahora</h2>
+      <p class="mb-6">
+        ¡Asegura tu lugar y disfruta de la mejor experiencia gastronómica!
+      </p>
+      <a href="#reservas" class="btn btn-accent btn-lg">Reservar</a>
+    </section>
+  </body>
+</html>

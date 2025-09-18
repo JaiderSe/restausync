@@ -7,8 +7,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { LoginComponent } from './pages//login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
 
@@ -17,7 +17,19 @@ export const routes: Routes = [
   { path: 'features', component: FeaturesComponent }, // destacados
   { path: 'menu', component: MenuComponent },    // menú
   { path: 'contact', component: ContactComponent }, // contacto
-  { path: '**', redirectTo: '' }, // rutas desconocidas -> Home
-  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  
+
+
+
+
+
+
+
+
+
+
+  
+  { path: '**', redirectTo: '' }// rutas desconocidas -> Home
 ];
