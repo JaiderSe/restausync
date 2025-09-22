@@ -1,36 +1,72 @@
-<div class="p-6 bg-white shadow rounded-lg">
-  <h2 class="text-xl font-bold mb-4">Gestión de Ingredientes</h2>
+<section class="p-8 text-white pt-40">
+  <h2 class="text-3xl font-bold text-amber-400 mb-6">🌌 Gestión de Ingredientes</h2>
 
-  <button (click)="agregarIngrediente()"
-    class="mb-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-    ➕ Agregar Ingrediente
-  </button>
+  <!-- Tabla de Ingredientes -->
+  <div class="overflow-x-auto">
+    <table class="w-full border border-gray-700 rounded-xl shadow-xl backdrop-blur-lg bg-gray-900/70">
+      <thead>
+        <tr class="text-amber-400 border-b border-gray-700">
+          <th class="px-4 py-2 text-left">Nombre</th>
+          <th class="px-4 py-2">Unidad</th>
+          <th class="px-4 py-2">Stock</th>
+          <th class="px-4 py-2">Mínimo</th>
+          <th class="px-4 py-2">Proveedor</th>
+          <th class="px-4 py-2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ing of ingredientes"
+          class="hover:bg-amber-500/20 transition border-b border-gray-700">
+          <td class="px-4 py-2">{{ ing.nombre }}</td>
+          <td class="px-4 py-2">{{ ing.unidad }}</td>
+          <td class="px-4 py-2"
+              [ngClass]="{ 'text-red-400': ing.stock <= ing.minimo, 'text-green-400': ing.stock > ing.minimo }">
+              {{ ing.stock }}
+          </td>
+          <td class="px-4 py-2">{{ ing.minimo }}</td>
+          <td class="px-4 py-2">{{ ing.proveedor }}</td>
+          <td class="px-4 py-2 flex gap-2">
+            <button (click)="editarIngrediente(ing)" class="px-3 py-1 bg-blue-600 rounded-lg hover:bg-blue-500">
+              ✏️ Editar
+            </button>
+            <button (click)="eliminarIngrediente(ing.id)" class="px-3 py-1 bg-red-600 rounded-lg hover:bg-red-500">
+              🗑️ Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <table class="w-full border-collapse">
-    <thead>
-      <tr class="bg-gray-200 text-left">
-        <th class="p-2 border">ID</th>
-        <th class="p-2 border">Nombre</th>
-        <th class="p-2 border">Unidad</th>
-        <th class="p-2 border">Stock</th>
-        <th class="p-2 border">Mínimo</th>
-        <th class="p-2 border">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let ing of ingredientes" [class.bg-red-100]="ing.stock < ing.minimo">
-        <td class="p-2 border">{{ ing.id }}</td>
-        <td class="p-2 border">{{ ing.nombre }}</td>
-        <td class="p-2 border">{{ ing.unidad }}</td>
-        <td class="p-2 border">{{ ing.stock }}</td>
-        <td class="p-2 border">{{ ing.minimo }}</td>
-        <td class="p-2 border">
-          <button (click)="eliminarIngrediente(ing.id)"
-            class="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700">
-            🗑 Eliminar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <!-- Formulario Nuevo Ingrediente -->
+  <div class="mt-8 p-6 rounded-xl bg-gray-800/60 shadow-lg">
+    <h3 class="text-xl text-amber-400 mb-4">➕ Agregar Ingrediente</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <input [(ngModel)]="nuevoIngrediente.nombre" placeholder="Nombre" class="input futuristic-input bg-gray-900 py-2 center">
+      <input [(ngModel)]="nuevoIngrediente.unidad" placeholder="Unidad" class="input futuristic-input bg-gray-900 py-2 center">
+      <input type="number" [(ngModel)]="nuevoIngrediente.stock" placeholder="Stock" class="input futuristic-input bg-gray-900 py-2 center">
+      <input type="number" [(ngModel)]="nuevoIngrediente.minimo" placeholder="Mínimo" class="input futuristic-input bg-gray-900 py-2 center">
+      <input [(ngModel)]="nuevoIngrediente.proveedor" placeholder="Proveedor" class="input futuristic-input">
+    </div>
+    <button (click)="agregarIngrediente()" class="mt-4 px-4 py-2 bg-amber-500 text-black font-bold rounded-xl hover:bg-amber-400 transition">
+      Guardar
+    </button>
+  </div>
+
+  <!-- Modal Edición -->
+  <div *ngIf="editando" class="fixed inset-0 bg-black/70 flex justify-center items-center">
+    <div class="bg-gray-900 p-6 rounded-xl shadow-2xl w-96">
+      <h3 class="text-xl text-amber-400 mb-4">✏️ Editar Ingrediente</h3>
+      <input [(ngModel)]="editando.nombre" placeholder="Nombre" class="input futuristic-input mb-2 w-full">
+      <input [(ngModel)]="editando.unidad" placeholder="Unidad" class="input futuristic-input mb-2 w-full">
+      <input type="number" [(ngModel)]="editando.stock" placeholder="Stock" class="input futuristic-input mb-2 w-full">
+      <input type="number" [(ngModel)]="editando.minimo" placeholder="Mínimo" class="input futuristic-input mb-2 w-full">
+      <input [(ngModel)]="editando.proveedor" placeholder="Proveedor" class="input futuristic-input mb-2 w-full">
+
+      <div class="flex justify-end gap-4 mt-4">
+        <button (click)="guardarEdicion()" class="px-4 py-2 bg-green-500 rounded-lg">💾 Guardar</button>
+        <button (click)="editando=null" class="px-4 py-2 bg-gray-600 rounded-lg">❌ Cancelar</button>
+      </div>
+    </div>
+  </div>
+</section>

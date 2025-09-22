@@ -1,0 +1,10 @@
+.futuristic-input {
+  @apply bg-gray-900 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400 transition;
+}
+
+th{ 
+    text-align: center;
+    border: 2px;
+    border-color: aqua;
+    
+}

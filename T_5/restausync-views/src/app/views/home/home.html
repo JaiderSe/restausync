@@ -18,34 +18,37 @@
   </div>
 
   <!-- Menú Futurista -->
-  <section class="mt-16 w-full max-w-6xl mx-auto" id="menu">
-    <h2 class="text-3xl font-bold text-amber-400 text-center mb-8 animate-fade-in">
-      🍽️ Nuestro Menú
-    </h2>
+ <section class="mt-16 w-full max-w-6xl mx-auto" id="menu">
+  <h2 class="text-3xl font-bold text-amber-400 text-center mb-8 animate-fade-in">
+    🍽️ Nuestro Menú
+  </h2>
 
-    <!-- Filtros -->
-    <div class="flex justify-center gap-4 mb-8 flex-wrap">
-      <button *ngFor="let categoria of categorias"
-        (click)="categoriaSeleccionada = categoria"
-        [ngClass]="{ 'bg-amber-500 text-white': categoriaSeleccionada === categoria, 'bg-gray-700 text-gray-300': categoriaSeleccionada !== categoria
-        }"
-        class="px-4 py-2 rounded-xl font-semibold transition hover:scale-105">
-        {{ categoria | titlecase }}
-      </button>
-    </div>
+  <!-- Filtros -->
+  <div class="flex justify-center gap-4 mb-8 flex-wrap">
+    <button *ngFor="let categoria of categorias"
+      (click)="categoriaSeleccionada = categoria"
+      [ngClass]="{
+        'bg-amber-500 text-white': categoriaSeleccionada === categoria,
+        'bg-gray-700 text-gray-300': categoriaSeleccionada !== categoria
+      }"
+      class="px-4 py-2 rounded-xl font-semibold transition hover:scale-105">
+      {{ categoria | titlecase }}
+    </button>
+  </div>
 
-    <!-- Grid de Platillos -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div *ngFor="let p of filtrarPlatillos()"
-        class="bg-gray-800 rounded-2xl p-6 text-center shadow-lg hover:shadow-[0_0_20px_#f59e0b] 
-               transition transform hover:-translate-y-2 animate-fade-in">
-        
-        <img [src]="p.imagen" [alt]="p.nombre" class="rounded-lg mx-auto mb-4 h-40 w-full object-cover">
-        
-        <h3 class="text-xl font-bold text-amber-400">{{ p.nombre }}</h3>
-        <p class="mt-2 text-sm text-gray-300">{{ p.descripcion }}</p>
-        <span class="mt-4 block font-semibold text-green-400">${{ p.precio }}</span>
-      </div>
+  <!-- Grid de Platillos -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div *ngFor="let p of filtrarPlatillos()"
+      class="bg-gray-800 rounded-2xl p-6 text-center shadow-lg hover:shadow-[0_0_20px_#f59e0b] 
+             transition transform hover:-translate-y-2 animate-fade-in">
+
+      <img [src]="p.imagen" [alt]="p.nombre" class="rounded-lg mx-auto mb-4 h-40 w-full object-cover">
+
+      <h3 class="text-xl font-bold text-amber-400">{{ p.nombre }}</h3>
+      <p class="mt-2 text-sm text-gray-300">{{ p.descripcion }}</p>
+      <span class="mt-4 block font-semibold text-green-400">${{ p.precio }}</span>
     </div>
-  </section>
+  </div>
+</section>
+
 </div>

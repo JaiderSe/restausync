@@ -1,23 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PedidosService } from '../../../shared/services/pedidos.service';
+import { Pedido } from '../../../shared/models/pedido.model';
 
 @Component({
   selector: 'app-mesero-dashboard',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css']
+  templateUrl: './dashboard.html'
 })
 export class MeseroDashboard {
-  platillos = [
-    { id: 1, nombre: 'Pizza', precio: 20 },
-    { id: 2, nombre: 'Hamburguesa', precio: 15 },
-    { id: 3, nombre: 'Ensalada', precio: 10 }
-  ];
+  pedidos: Pedido[] = [];
 
-  pedido: any[] = [];
+  constructor(private pedidosService: PedidosService) {}
 
-  agregarPlatillo(platillo: any) {
-    this.pedido.push(platillo);
+  ngOnInit() {
+    this.pedidos = this.pedidosService.getPedidos();
+  }
+
+  marcarEntregado(pedido: Pedido) {
+    this.pedidosService.actualizarEstado(pedido.id, 'entregado');
+    this.pedidos = this.pedidosService.getPedidos();
   }
 }

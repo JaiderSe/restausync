@@ -1,61 +1,30 @@
-<div class="min-h-screen bg-gray-900 text-white p-8 pt-40">
-  <h1 class="text-3xl font-bold mb-6">🪑 Gestión de Mesas</h1>
+<section class="mt-16 w-full max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold text-amber-400 mb-6">🪑 Gestión de Mesas</h2>
 
-  <!-- Formulario Agregar -->
-  <div class="bg-gray-800 p-4 rounded-lg mb-6">
-    <h2 class="text-xl font-semibold mb-4">➕ Agregar Mesa</h2>
-    <div class=" flex gap-4 items-center">
-      <input [(ngModel)]="nuevaMesa.numero" placeholder="Número" class="p-2 rounded text-white" />
-      <input type="number" [(ngModel)]="nuevaMesa.capacidad" placeholder="Capacidad" class="p-2 rounded text-white" />
-      <select [(ngModel)]="nuevaMesa.estado" class="p-2 rounded text-white">
-        <option value="disponible">Disponible</option>
-        <option value="ocupada">Ocupada</option>
-        <option value="reservada">Reservada</option>
-        <option value="mantenimiento">Mantenimiento</option>
-      </select>
-      <button (click)="agregarMesa()" class="bg-gray-900 px-4 py-2 rounded">Agregar</button>
-    </div>
+  <div class="flex gap-4 mb-6">
+    <input [(ngModel)]="nuevaMesa.numero" placeholder="Número" class="px-3 py-2 rounded bg-gray-700 text-white">
+    <input type="number" [(ngModel)]="nuevaMesa.capacidad" placeholder="Capacidad" class="px-3 py-2 rounded bg-gray-700 text-white">
+    <button (click)="agregarMesa()" class="px-4 py-2 bg-green-600 text-white rounded">Agregar</button>
   </div>
 
-  <!-- Lista de Mesas -->
-  <table class="w-full border-collapse">
-    <thead>
-      <tr class="bg-gray-700">
-        <th class="p-3">Número</th>
-        <th class="p-3">Capacidad</th>
-        <th class="p-3">Estado</th>
-        <th class="p-3">Acciones</th>
+  <table class="w-full text-left text-gray-300">
+    <thead class="bg-gray-700 text-white">
+      <tr>
+        <th class="p-2">Número</th>
+        <th class="p-2">Capacidad</th>
+        <th class="p-2">Estado</th>
+        <th class="p-2">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let mesa of mesas" class="border-b border-gray-700">
-        <td class="p-3">{{ mesa.numero }}</td>
-        <td class="p-3">{{ mesa.capacidad }}</td>
-        <td class="p-3 capitalize">{{ mesa.estado }}</td>
-        <td class="p-3 gap-2">
-          <button (click)="editarMesa(mesa)" class="bg-blue-600 px-3 py-1 rounded" style="margin-right: 10px;">Editar</button>
-          <button (click)="eliminarMesa(mesa.id)" class="bg-red-600 px-3 py-1 rounded">Eliminar</button>
+      <tr *ngFor="let m of mesas" class="border-b border-gray-600">
+        <td class="p-2">{{ m.numero }}</td>
+        <td class="p-2">{{ m.capacidad }}</td>
+        <td class="p-2">{{ m.estado }}</td>
+        <td class="p-2">
+          <button (click)="eliminarMesa(m.id)" class="px-2 py-1 bg-red-600 text-white rounded">Eliminar</button>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <!-- Modal de Edición -->
-  <div *ngIf="editando" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <div class="bg-gray-800 p-6 rounded-lg">
-      <h2 class="text-xl font-semibold mb-4">✏️ Editar Mesa</h2>
-      <input [(ngModel)]="editando.numero" placeholder="Número" class="p-2 mb-2 w-full rounded text-white" />
-      <input type="number" [(ngModel)]="editando.capacidad" placeholder="Capacidad" class="p-2 mb-2 w-full rounded text-white" />
-      <select [(ngModel)]="editando.estado" class="p-2 mb-4 w-full rounded text-white">
-        <option value="disponible">Disponible</option>
-        <option value="ocupada">Ocupada</option>
-        <option value="reservada">Reservada</option>
-        <option value="mantenimiento">Mantenimiento</option>
-      </select>
-      <div class="flex gap-4 justify-end">
-        <button (click)="guardarEdicion()" class="bg-green-600 px-4 py-2 rounded">Guardar</button>
-        <button (click)="editando = null" class="bg-gray-600 px-4 py-2 rounded">Cancelar</button>
-      </div>
-    </div>
-  </div>
-</div>
+</section>

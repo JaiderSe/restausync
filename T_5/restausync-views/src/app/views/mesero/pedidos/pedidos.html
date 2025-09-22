@@ -1,0 +1,80 @@
+<section class="mt-16 w-full max-w-6xl mx-auto pt-40" id="pedidos">
+  <h2 class="text-3xl font-bold text-amber-400 text-center mb-8 animate-fade-in">
+    📝 Tomar Pedido
+  </h2>
+
+  <!-- Selección de mesa -->
+
+<div class="mb-6 text-center">
+  <label class="font-semibold text-gray-300 mr-2">Mesa:</label>
+  <select [(ngModel)]="mesaSeleccionada" class="px-3 py-2 rounded-lg bg-gray-700 text-white">
+    <option *ngFor="let m of mesas" [ngValue]="m">
+      {{ m.numero }} ({{ m.estado }})
+    </option>
+  </select>
+</div>
+
+
+  <!-- Filtros -->
+  <div class="flex justify-center gap-4 mb-8 flex-wrap">
+    <button *ngFor="let categoria of categorias"
+      (click)="categoriaSeleccionada = categoria"
+      [ngClass]="{
+        'bg-amber-500 text-white': categoriaSeleccionada === categoria,
+        'bg-gray-700 text-gray-300': categoriaSeleccionada !== categoria
+      }"
+      class="px-4 py-2 rounded-xl font-semibold transition hover:scale-105">
+      {{ categoria | titlecase }}
+    </button>
+  </div>
+
+  <!-- Grid de Platillos -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div *ngFor="let p of filtrarPlatillos()"
+      class="bg-gray-800 rounded-2xl p-6 text-center shadow-lg hover:shadow-[0_0_20px_#f59e0b] 
+             transition transform hover:-translate-y-2 animate-fade-in">
+
+      <img [src]="p.imagen" [alt]="p.nombre" class="rounded-lg mx-auto mb-4 h-40 w-full object-cover">
+
+      <h3 class="text-xl font-bold text-amber-400">{{ p.nombre }}</h3>
+      <p class="mt-2 text-sm text-gray-300">{{ p.descripcion }}</p>
+      <span class="mt-4 block font-semibold text-green-400">${{ p.precio }}</span>
+
+      <button (click)="agregarAlCarrito(p)"
+        class="mt-4 px-4 py-2 bg-amber-500 text-white rounded-lg hover:scale-105 transition">
+        ➕ Añadir
+      </button>
+    </div>
+  </div>
+
+  <div class="mb-6 text-center">
+  <label class="font-semibold text-gray-300 mr-2">Notas / Descripción:</label>
+  <textarea [(ngModel)]="descripcion" class="px-3 py-2 w-80 rounded-lg bg-gray-700 text-white"></textarea>
+</div>
+
+  <!-- Carrito -->
+  <div class="mt-12 bg-gray-900 p-6 rounded-2xl shadow-lg">
+    <h3 class="text-xl font-bold text-amber-400 mb-4">🛒 Carrito</h3>
+
+    <div *ngIf="carrito.length > 0; else carritoVacio">
+      <div *ngFor="let item of carrito" class="flex justify-between items-center mb-2">
+        <span class="text-white">{{ item.platillo.nombre }} (x{{ item.cantidad }})</span>
+        <div>
+          <span class="text-green-400 font-semibold mr-4">${{ item.platillo.precio * item.cantidad }}</span>
+          <button (click)="quitarDelCarrito(item)" class="text-red-400 hover:underline">❌</button>
+        </div>
+      </div>
+
+      <div class="mt-4 text-right">
+        <p class="text-lg font-bold text-green-400">Total: ${{ total() }}</p>
+        <button (click)="enviarPedido()" class="mt-2 px-6 py-2 bg-green-500 text-white rounded-lg hover:scale-105 transition">
+          ✅ Enviar Pedido
+        </button>
+      </div>
+    </div>
+
+    <ng-template #carritoVacio>
+      <p class="text-gray-400">El carrito está vacío.</p>
+    </ng-template>
+  </div>
+</section>
