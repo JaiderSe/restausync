@@ -1,0 +1,36 @@
+<div class="p-6 bg-white shadow rounded-lg">
+  <h2 class="text-xl font-bold mb-4">Gestión de Ingredientes</h2>
+
+  <button (click)="agregarIngrediente()"
+    class="mb-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+    ➕ Agregar Ingrediente
+  </button>
+
+  <table class="w-full border-collapse">
+    <thead>
+      <tr class="bg-gray-200 text-left">
+        <th class="p-2 border">ID</th>
+        <th class="p-2 border">Nombre</th>
+        <th class="p-2 border">Unidad</th>
+        <th class="p-2 border">Stock</th>
+        <th class="p-2 border">Mínimo</th>
+        <th class="p-2 border">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ing of ingredientes" [class.bg-red-100]="ing.stock < ing.minimo">
+        <td class="p-2 border">{{ ing.id }}</td>
+        <td class="p-2 border">{{ ing.nombre }}</td>
+        <td class="p-2 border">{{ ing.unidad }}</td>
+        <td class="p-2 border">{{ ing.stock }}</td>
+        <td class="p-2 border">{{ ing.minimo }}</td>
+        <td class="p-2 border">
+          <button (click)="eliminarIngrediente(ing.id)"
+            class="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700">
+            🗑 Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

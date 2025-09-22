@@ -1,0 +1,35 @@
+<div class="pt-40 min-h-screen from-gray-900 via-gray-800 to-black text-white p-8">
+  <h1 class="text-4xl font-extrabold mb-10 text-center">Panel de Administración</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Usuarios -->
+    <a routerLink="/admin/usuarios" class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 shadow-lg transition transform hover:scale-105">
+      <h2 class="text-2xl font-semibold mb-3">👤 Usuarios</h2>
+      <p class="text-gray-300">Gestiona administradores, meseros y chefs.</p>
+    </a>
+
+    <!-- Ingredientes -->
+    <a routerLink="inventario/ingredientes" class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 shadow-lg transition transform hover:scale-105">
+      <h2 class="text-2xl font-semibold mb-3">🥕 Ingredientes</h2>
+      <p class="text-gray-300">Controla el inventario y existencias.</p>
+    </a>
+
+    <!-- Mesas -->
+    <a routerLink="/admin/mesas" class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 shadow-lg transition transform hover:scale-105">
+      <h2 class="text-2xl font-semibold mb-3">🍽️ Mesas</h2>
+      <p class="text-gray-300">Organiza la disponibilidad de mesas.</p>
+    </a>
+
+    <!-- Pedidos -->
+    <a routerLink="pedidos" class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 shadow-lg transition transform hover:scale-105">
+      <h2 class="text-2xl font-semibold mb-3">📦 Pedidos</h2>
+      <p class="text-gray-300">Revisa y actualiza los estados de pedidos.</p>
+    </a>
+
+    <!-- Reportes -->
+    <a routerLink="reportes" class="p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 shadow-lg transition transform hover:scale-105">
+      <h2 class="text-2xl font-semibold mb-3">📊 Reportes</h2>
+      <p class="text-gray-300">Consulta estadísticas y métricas.</p>
+    </a>
+  </div>
+</div>

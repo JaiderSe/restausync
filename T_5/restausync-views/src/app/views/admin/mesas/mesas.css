@@ -1,0 +1,30 @@
+
+input, select {
+    background-color: var(--color-gray-900); /* Tailwind's bg-gray-800 */
+    color: white;
+    border: none;
+    padding: 12px;
+}
+
+td {
+    border: 1px solid #03031d; /* Tailwind's border-gray-700 */
+    text-align: center;
+}
+
+td>button{
+    background-color: var(--color-blue-800); /* Tailwind's bg-blue-600 */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+td>button:hover {
+    background-color: var(--color-blue-700); /* Tailwind's bg-blue-500 */
+}
+
+button:hover {
+    cursor: pointer;
+}

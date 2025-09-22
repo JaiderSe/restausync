@@ -1,0 +1,26 @@
+<div class="p-6 bg-white shadow rounded-lg">
+  <h2 class="text-xl font-bold mb-4">Pedidos en Cocina</h2>
+  <table class="w-full border-collapse">
+    <thead>
+      <tr class="bg-gray-200 text-left">
+        <th class="p-2 border">ID</th>
+        <th class="p-2 border">Mesa</th>
+        <th class="p-2 border">Platillo</th>
+        <th class="p-2 border">Estado</th>
+        <th class="p-2 border">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td class="p-2 border">{{ pedido.id }}</td>
+        <td class="p-2 border">{{ pedido.mesa }}</td>
+        <td class="p-2 border">{{ pedido.platillo }}</td>
+        <td class="p-2 border">{{ pedido.estado }}</td>
+        <td class="p-2 border space-x-2">
+          <button (click)="cambiarEstado(pedido, 'en proceso')" class="px-2 py-1 bg-yellow-500 text-white rounded">⏳</button>
+          <button (click)="cambiarEstado(pedido, 'terminado')" class="px-2 py-1 bg-green-600 text-white rounded">✔</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

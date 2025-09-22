@@ -1,0 +1,18 @@
+<div class="p-6 bg-white shadow rounded-lg">
+  <h2 class="text-xl font-bold mb-4">Tomar Orden</h2>
+
+  <h3 class="text-lg font-semibold mb-2">Menú</h3>
+  <ul class="mb-4">
+    <li *ngFor="let p of platillos" class="flex justify-between items-center border-b py-2">
+      <span>{{ p.nombre }} - ${{ p.precio }}</span>
+      <button (click)="agregarPlatillo(p)" class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Agregar</button>
+    </li>
+  </ul>
+
+  <h3 class="text-lg font-semibold mb-2">Pedido Actual</h3>
+  <ul>
+    <li *ngFor="let p of pedido" class="border-b py-2">
+      {{ p.nombre }} - ${{ p.precio }}
+    </li>
+  </ul>
+</div>

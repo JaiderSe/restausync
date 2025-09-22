@@ -1,0 +1,51 @@
+<div class="bg-gray-900 min-h-screen text-gray-200 px-6 py-12 pt-40">
+  <!-- Hero -->
+  <div class="text-center">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-amber-400 animate-glow">
+      Bienvenido a Restausync 🚀
+    </h1>
+
+    <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-lg animate-fade-in">
+      Gestiona tu restaurante con estilo futurista: rápido, eficiente y moderno. 
+      Meseros, cocina y administración en un solo lugar.
+    </p>
+
+    <button
+      class="mt-8 bg-gradient-to-r from-amber-500 to-red-500 px-8 py-3 rounded-xl text-white font-semibold 
+             hover:scale-105 hover:shadow-[0_0_20px_#f59e0b] transition animate-slide-up">
+      Explorar Menú
+    </button>
+  </div>
+
+  <!-- Menú Futurista -->
+  <section class="mt-16 w-full max-w-6xl mx-auto" id="menu">
+    <h2 class="text-3xl font-bold text-amber-400 text-center mb-8 animate-fade-in">
+      🍽️ Nuestro Menú
+    </h2>
+
+    <!-- Filtros -->
+    <div class="flex justify-center gap-4 mb-8 flex-wrap">
+      <button *ngFor="let categoria of categorias"
+        (click)="categoriaSeleccionada = categoria"
+        [ngClass]="{ 'bg-amber-500 text-white': categoriaSeleccionada === categoria, 'bg-gray-700 text-gray-300': categoriaSeleccionada !== categoria
+        }"
+        class="px-4 py-2 rounded-xl font-semibold transition hover:scale-105">
+        {{ categoria | titlecase }}
+      </button>
+    </div>
+
+    <!-- Grid de Platillos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div *ngFor="let p of filtrarPlatillos()"
+        class="bg-gray-800 rounded-2xl p-6 text-center shadow-lg hover:shadow-[0_0_20px_#f59e0b] 
+               transition transform hover:-translate-y-2 animate-fade-in">
+        
+        <img [src]="p.imagen" [alt]="p.nombre" class="rounded-lg mx-auto mb-4 h-40 w-full object-cover">
+        
+        <h3 class="text-xl font-bold text-amber-400">{{ p.nombre }}</h3>
+        <p class="mt-2 text-sm text-gray-300">{{ p.descripcion }}</p>
+        <span class="mt-4 block font-semibold text-green-400">${{ p.precio }}</span>
+      </div>
+    </div>
+  </section>
+</div>
