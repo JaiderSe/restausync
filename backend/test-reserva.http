@@ -1,0 +1,42 @@
+### Test de Login para obtener token
+POST http://localhost:4001/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "12345678"
+}
+
+### Test de Crear Reserva (usar token del login anterior)
+POST http://localhost:4001/api/v1/reservas
+Content-Type: application/json
+Authorization: Bearer TU_TOKEN_AQUI
+
+{
+  "mesa_id": 1,
+  "cliente_nombre": "Juan Pérez",
+  "cliente_telefono": "1234567890",
+  "fecha_hora": "2025-09-22T20:00:00.000Z",
+  "numero_personas": 2,
+  "notas": "Reserva para cena romántica"
+}
+
+### Test de Obtener todas las reservas
+GET http://localhost:4001/api/v1/reservas
+Authorization: Bearer TU_TOKEN_AQUI
+
+### Test de Obtener mesas disponibles
+GET http://localhost:4001/api/v1/mesas
+Authorization: Bearer TU_TOKEN_AQUI
+
+### Test de Crear Reserva con datos mínimos (solo campos requeridos)
+POST http://localhost:4001/api/v1/reservas
+Content-Type: application/json
+Authorization: Bearer TU_TOKEN_AQUI
+
+{
+  "mesa_id": 2,
+  "cliente_nombre": "María García",
+  "fecha_hora": "2025-09-23T19:30:00.000Z",
+  "numero_personas": 4
+}

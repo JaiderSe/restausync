@@ -1,0 +1,59 @@
+<div class="min-h-[70vh] flex items-center justify-center bg-gray-900 py-2 px-4">
+  <div class="w-full max-w-sm bg-gray-800 rounded-xl shadow-2xl p-8 border border-gray-700">
+    <!-- Título -->
+    <h2 class="text-3xl font-bold text-center text-orange-500 mb-8">
+      Iniciar Sesión
+    </h2>
+
+    <!-- Formulario -->
+    <form
+      class="space-y-6"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2" for="email">
+          Correo Electrónico
+        </label>
+        <input
+          type="email"
+          placeholder="tu@email.com"
+          class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+          formControlName="email"
+        />
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-2" for="password">
+          Contraseña
+        </label>
+        <input
+          type="password"
+          placeholder="••••••••"
+          class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+          formControlName="password"
+        />
+      </div>
+
+      <!-- Botón Submit -->
+      <button
+        class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8"
+        type="submit"
+      >
+        Ingresar
+      </button>
+    </form>
+
+    <!-- Enlace a Registro -->
+    <div class="text-center mt-6">
+      <span class="text-sm text-gray-400">¿No tienes cuenta? </span>
+      <a
+        routerLink="/auth/register"
+        class="text-sm font-medium text-orange-500 hover:text-orange-400 transition-colors duration-300"
+        >Regístrate</a
+      >
+    </div>
+  </div>
+</div>

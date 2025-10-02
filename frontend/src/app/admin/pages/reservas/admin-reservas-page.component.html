@@ -1,0 +1,200 @@
+<div class="bg-gray-900 text-gray-100 min-h-screen p-6">
+  <!-- Encabezado -->
+  <div
+    class="flex justify-between items-center border-b-2 border-orange-500 p-4 bg-gray-800 shadow-md mb-6 rounded-lg"
+  >
+    <div>
+      <h1
+        class="px-6 py-2 rounded-full bg-orange-500 text-white text-xl font-bold shadow-md"
+      >
+        🪑 Reservas de Mesas
+      </h1>
+    </div>
+    <div class="flex gap-2">
+      <a class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow transition" routerLink="/admin/reservas-mesas/create-mesa">
+        ➕ Nueva Mesa
+      </a>
+      <a
+        class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow transition"
+        routerLink="/admin/reservas-mesas/create-reserva"
+      >
+        📅 Nueva Reserva
+      </a>
+    </div>
+  </div>
+
+  <!-- Sección de Mesas -->
+  <div class="mb-8">
+    <h2 class="text-xl font-bold mb-4 text-orange-400">Estado de las Mesas</h2>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+    >
+      @for (mesa of mesas; track mesa.id) {
+        <div class="bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+          <div class="p-4">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-lg text-orange-400">Mesa {{ mesa.numero }}</h3>
+              <div class="dropdown dropdown-end">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="bg-gray-700 hover:bg-gray-600 text-gray-300 p-2 rounded-md transition duration-200"
+                >
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content z-[1] menu p-2 shadow bg-gray-800 border border-gray-700 rounded-box w-52"
+                >
+                  <li>
+                    <button
+                      class="w-full bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm transition duration-200"
+                      (click)="cambiarEstadoMesa(mesa.id, 'libre')"
+                      [disabled]="mesa.estado === 'libre'"
+                    >
+                      ✅ Marcar como Libre
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="w-full bg-yellow-600 hover:bg-yellow-700 text-white px-3 py-2 rounded text-sm transition duration-200"
+                      (click)="cambiarEstadoMesa(mesa.id, 'reservada')"
+                      [disabled]="mesa.estado === 'reservada'"
+                    >
+                      🕐 Marcar como Reservada
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="w-full bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm transition duration-200"
+                      (click)="cambiarEstadoMesa(mesa.id, 'ocupada')"
+                      [disabled]="mesa.estado === 'ocupada'"
+                    >
+                      👥 Marcar como Ocupada
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="w-full bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm transition duration-200"
+                      (click)="cambiarEstadoMesa(mesa.id, 'mantenimiento')"
+                      [disabled]="mesa.estado === 'mantenimiento'"
+                    >
+                      🔧 Mantenimiento
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="space-y-1 text-gray-300">
+              <p>
+                <strong class="text-orange-400">Capacidad:</strong>
+                {{ mesa.capacidad }} personas
+              </p>
+              <p>
+                <strong class="text-orange-400">Estado:</strong>
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-semibold"
+                  [ngClass]="{
+                    'bg-green-600 text-white': mesa.estado === 'libre',
+                    'bg-yellow-600 text-white': mesa.estado === 'reservada',
+                    'bg-blue-600 text-white': mesa.estado === 'ocupada',
+                    'bg-red-600 text-white': mesa.estado === 'mantenimiento',
+                  }"
+                >
+                  {{ mesa.estado | titlecase }}
+                </span>
+              </p>
+              @if (mesa.ubicacion) {
+                <p>
+                  <strong class="text-orange-400">Ubicación:</strong>
+                  {{ mesa.ubicacion }}
+                </p>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Sección de Reservas -->
+  <div>
+    <h2 class="text-xl font-bold mb-4 text-orange-400">Reservas Activas</h2>
+
+    <div class="overflow-x-auto">
+      <table class="!table !w-full !bg-gray-800 !rounded-lg !overflow-hidden">
+        <thead>
+          <tr class="!bg-gray-700 !text-orange-400">
+            <th class="!px-4 !py-3 !text-left">Mesa</th>
+            <th class="!px-4 !py-3 !text-left">Cliente</th>
+            <th class="!px-4 !py-3 !text-left">Teléfono</th>
+            <th class="!px-4 !py-3 !text-left">Fecha</th>
+            <th class="!px-4 !py-3 !text-left">Hora</th>
+            <th class="!px-4 !py-3 !text-left">Personas</th>
+            <th class="!px-4 !py-3 !text-left">Estado</th>
+            <th class="!px-4 !py-3 !text-left">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (reserva of reservas; track reserva.reserva_id) {
+            <tr
+              class="!border-b !border-gray-700 !bg-white !text-gray-900 !hover:bg-white"
+            >
+              <td class="px-4 py-3">
+                {{ reserva.mesa?.numero || 'N/A' }}
+              </td>
+              <td class="px-4 py-3">
+                {{ reserva.cliente_nombre }}
+              </td>
+              <td class="px-4 py-3">
+                {{ reserva.cliente_telefono || 'N/A' }}
+              </td>
+              <td class="px-4 py-3">
+                {{ reserva.fecha_hora | date: 'dd/MM/yyyy' }}
+              </td>
+              <td class="px-4 py-3">
+                {{ reserva.fecha_hora | date: 'HH:mm' }}
+              </td>
+              <td class="px-4 py-3">
+                {{ reserva.numero_personas }}
+              </td>
+              <td class="px-4 py-3">
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-semibold"
+                  [ngClass]="{
+                    'bg-yellow-600 text-white': reserva.estado === 'pendiente',
+                    'bg-green-600 text-white': reserva.estado === 'confirmado',
+                    'bg-red-600 text-white': reserva.estado === 'cancelada',
+                    'bg-blue-600 text-white': reserva.estado === 'completada',
+                  }"
+                >
+                  {{ reserva.estado | titlecase }}
+                </span>
+              </td>
+              <td class="px-4 py-3">
+                <div class="flex gap-1">
+                  <button
+                    class="bg-orange-500 hover:bg-orange-600 text-white px-2 py-1 rounded text-sm transition duration-200"
+                    (click)="editarReserva(reserva.reserva_id)"
+                    title="Editar reserva"
+                  >
+                    ✏️
+                  </button>
+                  <button
+                    class="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded text-sm transition duration-200"
+                    (click)="eliminarReserva(reserva.reserva_id)"
+                    title="Eliminar reserva"
+                  >
+                    🗑️
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

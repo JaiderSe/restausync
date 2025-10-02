@@ -1,0 +1,151 @@
+<div class="bg-gray-900 text-gray-100 min-h-screen p-6">
+  <div class="max-w-2xl mx-auto">
+    <!-- Encabezado -->
+    <div
+      class="flex justify-between items-center border-b-2 border-orange-500 p-4 bg-gray-800 shadow-md mb-6 rounded-lg"
+    >
+      <div>
+        <h1
+          class="px-6 py-2 rounded-full bg-orange-500 text-white text-xl font-bold shadow-md"
+        >
+          🪑 Crear Nueva Mesa
+        </h1>
+      </div>
+      <div>
+        <button class="btn bg-gray-600 hover:bg-gray-700 text-white" (click)="onCancel()">
+          ❌ Cancelar
+        </button>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+      <div class="p-6">
+        <form [formGroup]="createForm" (ngSubmit)="onSave()" class="space-y-6">
+          <!-- Error Message -->
+          @if (errorMessage) {
+            <div class="bg-red-600 text-white p-4 rounded-lg mb-4">
+              ⚠️ {{ errorMessage }}
+            </div>
+          }
+
+          <!-- Número de Mesa -->
+          <div>
+            <label class="block text-sm font-bold text-orange-400 mb-2">
+              Número de Mesa *
+            </label>
+            <input
+              type="number"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              formControlName="numero"
+              placeholder="Ingrese el número de mesa"
+              min="1"
+            />
+            @if (
+              createForm.get('numero')?.invalid &&
+              createForm.get('numero')?.touched
+            ) {
+              <div class="text-red-400 text-sm mt-1">
+                @if (createForm.get('numero')?.errors?.['required']) {
+                  El número de mesa es requerido
+                }
+                @if (createForm.get('numero')?.errors?.['min']) {
+                  El número debe ser mayor a 0
+                }
+              </div>
+            }
+          </div>
+
+          <!-- Capacidad -->
+          <div>
+            <label class="block text-sm font-bold text-orange-400 mb-2">
+              Capacidad (personas) *
+            </label>
+            <input
+              type="number"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              formControlName="capacidad"
+              placeholder="Número de personas que pueden sentarse"
+              min="1"
+              max="20"
+            />
+            @if (
+              createForm.get('capacidad')?.invalid &&
+              createForm.get('capacidad')?.touched
+            ) {
+              <div class="text-red-400 text-sm mt-1">
+                @if (createForm.get('capacidad')?.errors?.['required']) {
+                  La capacidad es requerida
+                }
+                @if (createForm.get('capacidad')?.errors?.['min']) {
+                  La capacidad debe ser mayor a 0
+                }
+                @if (createForm.get('capacidad')?.errors?.['max']) {
+                  La capacidad no puede ser mayor a 20 personas
+                }
+              </div>
+            }
+          </div>
+
+          <!-- Estado -->
+          <div>
+            <label class="block text-sm font-bold text-orange-400 mb-2">
+              Estado Inicial *
+            </label>
+            <select class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500" formControlName="estado">
+              <option value="">Seleccione un estado</option>
+              @for (option of estadoOptions; track option.value) {
+                <option [value]="option.value">{{ option.label }}</option>
+              }
+            </select>
+            @if (
+              createForm.get('estado')?.invalid &&
+              createForm.get('estado')?.touched
+            ) {
+              <div class="text-red-400 text-sm mt-1">
+                El estado es requerido
+              </div>
+            }
+          </div>
+
+          <!-- Ubicación -->
+          <div>
+            <label class="block text-sm font-bold text-orange-400 mb-2">
+              Ubicación
+            </label>
+            <input
+              type="text"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              formControlName="ubicacion"
+              placeholder="Ej: Terraza, Salón principal, etc."
+            />
+          </div>
+
+          <!-- Botones -->
+          <div class="flex justify-end gap-3">
+            <button
+              type="button"
+              class="btn bg-gray-600 hover:bg-gray-700 text-white"
+              (click)="onCancel()"
+              [disabled]="isSaving"
+            >
+              ❌ Cancelar
+            </button>
+            <button
+              type="submit"
+              class="btn bg-orange-500 hover:bg-orange-600 text-white disabled:opacity-50"
+              [disabled]="createForm.invalid || isSaving"
+            >
+              @if (isSaving) {
+                <span class="loading loading-spinner loading-sm"></span>
+                Creando...
+              } @else {
+                ➕ Crear Mesa
+              }
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
