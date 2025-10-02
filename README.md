@@ -98,8 +98,7 @@ app/
     └── img/
         └── logo.png
    ```
-**🖥 Página Web:** 
-[Link](https://drive.google.com/drive/folders/1sXHN52Wap0UovdsT4diPcBXqt-dIDT79?usp=sharing)
+
 
 **📊 Mapa de Navegación del sistema:**
 [Link](https://drive.google.com/file/d/1xrKbX342PzqKwv00y0xOOYbQdXqd4mg5/view?usp=sharing)
@@ -196,3 +195,5 @@ PAULA ANDREA CASSIANI CASTILLO <paulaacassiani@gmail.com>
 
 
 
+**🖥 Página Web:** 
+[Link](https://drive.google.com/drive/folders/1sXHN52Wap0UovdsT4diPcBXqt-dIDT79?usp=sharing)
