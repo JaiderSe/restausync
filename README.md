@@ -194,7 +194,7 @@ PAULA ANDREA CASSIANI CASTILLO <paulaacassiani@gmail.com>
 
 
 **🖥 Página Web:** 
-[Link](https://drive.google.com/drive/folders/1sXHN52Wap0UovdsT4diPcBXqt-dIDT79?usp=sharing).
+[Link](https://drive.google.com/drive/folders/1sXHN52Wap0UovdsT4diPcBXqt-dIDT79?usp=sharing)
 
 **🚀 Mockup:**
 [Link](https://drive.google.com/file/d/1RRVvbDGRa0bgOkOfDM5DY045C1C7dRuq/view?usp=sharing)
