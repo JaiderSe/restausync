@@ -1,0 +1,78 @@
+<div class="navbar bg-gray-800 text-gray-100 px-8 shadow-lg">
+  <!-- INICIO (lado izquierdo) -->
+  <div class="navbar-start">
+    <!-- Dropdown para móviles -->
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost text-gray-100 hover:bg-gray-700 lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-gray-800 text-gray-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-lg border border-gray-700"
+      >
+        <li><a routerLink="/" class="text-gray-100 hover:bg-gray-700 hover:text-orange-400">Inicio</a></li>
+        <li><a routerLink="/menu" class="text-gray-100 hover:bg-gray-700 hover:text-orange-400">Menú</a></li>
+        <li><a routerLink="/reservas" class="text-gray-100 hover:bg-gray-700 hover:text-orange-400">Reservas</a></li>
+        <li><a routerLink="/contacto" class="text-gray-100 hover:bg-gray-700 hover:text-orange-400">Contacto</a></li>
+      </ul>
+    </div>
+    <!-- Nombre de la app -->
+    <a class="btn btn-ghost normal-case text-xl text-orange-500 hover:bg-gray-700" routerLink="/">
+      🍽️ {{ appName() }}
+    </a>
+  </div>
+
+  <!-- CENTRO (links para pantallas grandes) -->
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a routerLink="/" class="text-gray-100 hover:text-orange-400 transition-colors">Inicio</a></li>
+      <li><a routerLink="/menu" class="text-gray-100 hover:text-orange-400 transition-colors">Menú</a></li>
+      <li><a routerLink="/reservas" class="text-gray-100 hover:text-orange-400 transition-colors">Reservas</a></li>
+      <li><a routerLink="/contacto" class="text-gray-100 hover:text-orange-400 transition-colors">Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- DERECHA (estado de sesión) -->
+  <div class="navbar-end gap-3">
+    @if (authStatus() === 'authenticated') {
+      <a
+        class="px-4 py-2 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+        [routerLink]="isAdmin() ? '/admin' : (isWaiter() ? '/waiter' : '/')"
+      >
+        {{ displayName() }}
+      </a>
+      <button
+        class="px-4 py-2 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+        (click)="logout()"
+      >
+        Salir De la Cuenta
+      </button>
+    } @else if (authStatus() === 'not-authenticated') {
+      <a
+        class="px-4 py-2 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+        routerLink="/auth/login"
+      >
+        Iniciar
+      </a>
+    } @else {
+      <button
+        class="px-4 py-2 bg-gray-700 text-gray-300 font-medium rounded-lg border border-gray-600 hover:bg-gray-600 transition-all duration-300"
+      >
+        . . .
+      </button>
+    }
+  </div>
+</div>

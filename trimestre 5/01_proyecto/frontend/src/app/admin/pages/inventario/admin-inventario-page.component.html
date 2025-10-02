@@ -1,0 +1,31 @@
+<div class="bg-gray-900 text-gray-100 min-h-screen p-6">
+  <!-- Encabezado -->
+  <div
+    class="flex justify-between items-center border-b-2 border-orange-500 p-4 bg-gray-800 shadow-md mb-6 rounded-lg"
+  >
+    <div>
+      <h1
+        class="px-6 py-2 rounded-full bg-orange-500 text-white text-xl font-bold shadow-md"
+      >
+        📦 Inventario
+      </h1>
+    </div>
+    <div>
+      <a class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow transition" routerLink="/admin/inventario/create">
+        ➕ Crear Item
+      </a>
+    </div>
+  </div>
+  <!-- Encabezado -->
+  <!-- Tabla -->
+  @if (inventarioResource.error()) {
+    <is-error />
+  } @else if (inventarioResource.isLoading()) {
+    <is-loading />
+  } @else if (inventarioResource.hasValue()) {
+    <admin-inventario-table [inventarios]="inventarioResource.value()" />
+  } @else if (!inventarioResource.hasValue()) {
+    <is-empty />
+  }
+  <!-- Tabla -->
+</div>

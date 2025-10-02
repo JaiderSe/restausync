@@ -1,0 +1,202 @@
+<div class="bg-gray-900 text-gray-100 min-h-screen p-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+      <div class="border-b border-gray-700 pb-4 mb-6">
+        <h1 class="text-2xl font-bold text-orange-500 mb-0">📦 Crear Movimiento de Inventario</h1>
+      </div>
+      <div>
+        <div *ngIf="errorMessage" class="bg-red-600 text-white p-4 rounded-lg mb-4">
+          {{ errorMessage }}
+        </div>
+
+        <div *ngIf="isSaving" class="text-center mt-3">
+          <p class="text-gray-300">Guardando movimiento de inventario...</p>
+        </div>
+
+        <form
+          [formGroup]="createForm"
+          (ngSubmit)="onSave()"
+          *ngIf="!isSaving"
+          class="space-y-6"
+        >
+          <div>
+            <label for="ingrediente_id" class="block text-sm font-bold text-orange-400 mb-2"
+              >ID Ingrediente</label
+            >
+            <input
+              type="number"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="ingrediente_id"
+              formControlName="ingrediente_id"
+              [class.border-red-500]="
+                createForm.get('ingrediente_id')?.invalid &&
+                createForm.get('ingrediente_id')?.touched
+              "
+            />
+            <div
+              class="text-red-400 text-sm mt-1"
+              *ngIf="
+                createForm.get('ingrediente_id')?.invalid &&
+                createForm.get('ingrediente_id')?.touched
+              "
+            >
+              ID de ingrediente es requerido.
+            </div>
+          </div>
+
+          <div>
+            <label for="usuario_id" class="block text-sm font-bold text-orange-400 mb-2">ID Usuario</label>
+            <input
+              type="number"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="usuario_id"
+              formControlName="usuario_id"
+              [class.border-red-500]="
+                createForm.get('usuario_id')?.invalid &&
+                createForm.get('usuario_id')?.touched
+              "
+            />
+            <div
+              class="text-red-400 text-sm mt-1"
+              *ngIf="
+                createForm.get('usuario_id')?.invalid &&
+                createForm.get('usuario_id')?.touched
+              "
+            >
+              ID de usuario es requerido.
+            </div>
+          </div>
+
+          <div>
+            <label for="cantidad" class="block text-sm font-bold text-orange-400 mb-2">Cantidad</label>
+            <input
+              type="number"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="cantidad"
+              formControlName="cantidad"
+              [class.border-red-500]="
+                createForm.get('cantidad')?.invalid &&
+                createForm.get('cantidad')?.touched
+              "
+            />
+            <div
+              class="text-red-400 text-sm mt-1"
+              *ngIf="
+                createForm.get('cantidad')?.invalid &&
+                createForm.get('cantidad')?.touched
+              "
+            >
+              Cantidad es requerida y debe ser mayor o igual a 0.
+            </div>
+          </div>
+
+          <div>
+            <label for="tipo_movimiento" class="block text-sm font-bold text-orange-400 mb-2"
+              >Tipo de Movimiento</label
+            >
+            <select
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="tipo_movimiento"
+              formControlName="tipo_movimiento"
+              [class.border-red-500]="
+                createForm.get('tipo_movimiento')?.invalid &&
+                createForm.get('tipo_movimiento')?.touched
+              "
+            >
+              <option value="">Seleccione un tipo</option>
+              <option
+                *ngFor="let option of tipoMovimientoOptions"
+                [value]="option"
+              >
+                {{ option }}
+              </option>
+            </select>
+            <div
+              class="text-red-400 text-sm mt-1"
+              *ngIf="
+                createForm.get('tipo_movimiento')?.invalid &&
+                createForm.get('tipo_movimiento')?.touched
+              "
+            >
+              Tipo de movimiento es requerido.
+            </div>
+          </div>
+
+          <div>
+            <label for="fecha" class="block text-sm font-bold text-orange-400 mb-2">Fecha</label>
+            <input
+              type="date"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="fecha"
+              formControlName="fecha"
+              [class.border-red-500]="
+                createForm.get('fecha')?.invalid &&
+                createForm.get('fecha')?.touched
+              "
+            />
+            <div
+              class="text-red-400 text-sm mt-1"
+              *ngIf="
+                createForm.get('fecha')?.invalid &&
+                createForm.get('fecha')?.touched
+              "
+            >
+              Fecha es requerida.
+            </div>
+          </div>
+
+          <div>
+            <label for="motivo" class="block text-sm font-bold text-orange-400 mb-2">Motivo</label>
+            <textarea
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="motivo"
+              formControlName="motivo"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="costo_total" class="block text-sm font-bold text-orange-400 mb-2">Costo Total</label>
+            <input
+              type="number"
+              step="0.01"
+              class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              id="costo_total"
+              formControlName="costo_total"
+              [class.border-red-500]="
+                createForm.get('costo_total')?.invalid &&
+                createForm.get('costo_total')?.touched
+              "
+            />
+            <div
+              class="text-red-400 text-sm mt-1"
+              *ngIf="
+                createForm.get('costo_total')?.invalid &&
+                createForm.get('costo_total')?.touched
+              "
+            >
+              Costo total es requerido y debe ser mayor o igual a 0.
+            </div>
+          </div>
+
+          <div class="flex justify-end space-x-4 mt-6">
+            <button
+              type="submit"
+              class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md shadow transition disabled:opacity-50"
+              [disabled]="createForm.invalid"
+            >
+              ✅ Crear Movimiento
+            </button>
+            <button
+              type="button"
+              class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md shadow transition"
+              (click)="onCancel()"
+            >
+              ❌ Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
