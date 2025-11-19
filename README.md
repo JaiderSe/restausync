@@ -12,7 +12,7 @@ Repositorio para un proyecto sobre un aplicativo para Restaurantes
 [Link](https://docs.google.com/spreadsheets/d/1sU9yqRqmKJTXwxIzJmFOpNZCl_4W1LZl/edit?usp=drive_link&ouid=108198849053322034172&rtpof=true&sd=true)
 
 ## 🤖 Tablero Kanban:**
-[Link]([https://docs.google.com/spreadsheets/d/1sU9yqRqmKJTXwxIzJmFOpNZCl_4W1LZl/edit?usp=drive_link&ouid=108198849053322034172&rtpof=true&sd=true](https://paulaacassiani.atlassian.net/jira/software/projects/SCRUM/boards/1))
+[Link](https://paulaacassiani.atlassian.net/jira/software/projects/SCRUM/boards/1?isEligibleForUserSurvey=true&visitedUserSeg=true)
 
 ## 🛠️ Tecnologías
 
